@@ -18,9 +18,11 @@
 {    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+        NSLog(@"load!");
+    self.view.backgroundColor = UIColor.redColor;
+  
     //The below is used to disable the appearance of an "Edit" button in the "More" TabController View
-    self.tabBarController.customizableViewControllers = [NSArray arrayWithObjects:nil];
+    //self.tabBarController.customizableViewControllers = [NSArray arrayWithObjects:nil];
 }
 
 
@@ -35,6 +37,7 @@
     //Grab the Node delegate
     [VTNodeManager getInstance].selectedNodeDevice.delegate = self;
     [[VTNodeManager getInstance].selectedNodeDevice setStreamModeAcc:YES Gyro:YES Mag:YES withTimestampingEnabled:YES];
+          NSLog(@"appear!");
 }
 
 -(void) viewWillDisappear:(BOOL)animated {

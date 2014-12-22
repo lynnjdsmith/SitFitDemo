@@ -23,16 +23,17 @@ class BaseViewController: UIViewController {
   var menuWidth = 160
   var statusHeight = 20
   
-  var mainActivityVC :MainActivityViewController
+  var mainActivityVC :UITableViewController
   var dailyReportVC :DailyReportViewController
   var leaderboardVC :LeaderboardViewController
   var settingsVC :SettingsViewController
 
   required init(coder aDecoder: NSCoder) {
-    var mainActivityVC = MainActivityViewController(nibName: "MainActivityViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let mainActivityVC = storyboard.instantiateViewControllerWithIdentifier("VTNodeConnectionManagerViewController") as UITableViewController
+    //self.presentViewController(vc, animated: true, completion: nil)
+    
     mainActivityVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
-    mainActivityVC.view.layer
-      
     self.mainActivityVC = mainActivityVC
 
     var dailyReportVC = DailyReportViewController(nibName: "DailyReportViewController", bundle: nil)
@@ -67,7 +68,7 @@ class BaseViewController: UIViewController {
 
   
   @IBAction func menuButtonToggle(sender: AnyObject) {
-    println("menu clicked")
+    //println("menu clicked")
     if (menuOpen) { // close
       animateCenterPanelXPosition(targetPosition: 0)
       menuOpen = false
@@ -79,7 +80,7 @@ class BaseViewController: UIViewController {
   }
 
   @IBAction func menuBtn1(sender: AnyObject) {
-    println("monitor")
+    //println("monitor")
     self.hideVCs()
     mainActivityVC.view.hidden = false
     self.view.bringSubviewToFront(mainActivityVC.view)
@@ -87,7 +88,7 @@ class BaseViewController: UIViewController {
   }
   
   @IBAction func dailyReportButtonPressed(sender: AnyObject) {
-    println("report")
+    //println("report")
     self.hideVCs()
     dailyReportVC.view.hidden = false
     self.view.bringSubviewToFront(dailyReportVC.view)
@@ -95,7 +96,7 @@ class BaseViewController: UIViewController {
   }
 
   @IBAction func leaderboardButtonPressed(sender: AnyObject) {
-        println("leaderboard")
+        //println("leaderboard")
     self.hideVCs()
     leaderboardVC.view.hidden = false
     self.view.bringSubviewToFront(leaderboardVC.view)
@@ -103,7 +104,7 @@ class BaseViewController: UIViewController {
   }
   
   @IBAction func settingsButtonPressed(sender: AnyObject) {
-        println("settings")
+        //println("settings")
     self.hideVCs()
     settingsVC.view.hidden = false
     self.view.bringSubviewToFront(settingsVC.view)
