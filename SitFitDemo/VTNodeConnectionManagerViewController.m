@@ -10,10 +10,11 @@
 
 @interface VTNodeConnectionManagerViewController () <NodeDeviceDelegate>
 @property (strong, nonatomic) NSArray *currentNodeDeviceList;
-
 @end
 
 @implementation VTNodeConnectionManagerViewController
+
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,7 +27,7 @@
 
 - (void)viewDidLoad
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeDeviceListUpdated:) name:kNodeDeviceListUpdate object:[VTNodeManager getInstance]];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeDeviceListUpdated:) name:kNodeDeviceListUpdate object:[VTNodeManager getInstance]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedThatNodeDeviceIsReady:) name:VTNodeDeviceIsReadyNotification object:[VTNodeManager getInstance]];
     
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
@@ -36,8 +37,8 @@
               forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refresh;
   
-  NSLog(@"load!");
-  //self.view.backgroundColor = UIColor.greenColor;
+     NSLog(@"VIEW DID LOAD VTNODECONNMANAGERVC");
+    [delegate sayHello];
   
     [super viewDidLoad];
 }
@@ -84,6 +85,7 @@
     }
     
     cell.cbperipheral = [self.currentNodeDeviceList objectAtIndex:indexPath.row];
+  
     return cell;
 }
 
@@ -94,6 +96,7 @@
     VTNodeDeviceCell *cell = (VTNodeDeviceCell *)[tableView cellForRowAtIndexPath:indexPath];
     CBPeripheral *selectedDevice = cell.cbperipheral;
     [VTNodeManager connectToDevice:selectedDevice];
+
 }
 
 -(void)refreshView:(UIRefreshControl *)refresh {
@@ -108,7 +111,7 @@
 - (void) notifiedThatNodeDeviceIsReady:(NSNotification *)notification
 {
     NSLog(@"notifiedThatNodeDeviceIsReady");
-    [self performSegueWithIdentifier:@"deviceSelectedSegue" sender:self];
+    //[self performSegueWithIdentifier:@"deviceSelectedSegue" sender:self];
 }
 
 #pragma mark - NodeDeviceDelegate

@@ -9,12 +9,13 @@
 import UIKit
 import QuartzCore
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, oneDelegate { //customClassDelegate {
 
   @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var monitorButton: UIButton!
   @IBOutlet weak var dailyReportButton: UIButton!
   @IBOutlet weak var leaderboardButton: UIButton!
+  @IBOutlet weak var pickViewButton: UIButton!
   @IBOutlet weak var settingsButton: UIButton!
   
   let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -23,30 +24,53 @@ class BaseViewController: UIViewController {
   var menuWidth = 160
   var statusHeight = 20
   
-  var mainActivityVC :UITableViewController
+  //var mainActivityVC :UITableViewController
+  var activityVC :UIViewController
   var dailyReportVC :DailyReportViewController
   var leaderboardVC :LeaderboardViewController
+  //var pickNodeVC :UITableViewController
   var settingsVC :SettingsViewController
 
+  var viewsArray :AnyObject = []
+
+  
   required init(coder aDecoder: NSCoder) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let mainActivityVC = storyboard.instantiateViewControllerWithIdentifier("VTNodeConnectionManagerViewController") as UITableViewController
-    //self.presentViewController(vc, animated: true, completion: nil)
     
-    mainActivityVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
-    self.mainActivityVC = mainActivityVC
-
+    // Main
+    //let pickNodeVC = storyboard.instantiateViewControllerWithIdentifier("VTNodeConnectionManagerViewController") as UITableViewController
+    //pickNodeVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
+    //self.pickNodeVC = pickNodeVC
+    //self.viewsArray.addObject(self.mainActivityVC)
+    
+    //let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+    // .instantiatViewControllerWithIdentifier() returns AnyObject! this must be downcast to utilize it
+    //self.presentViewController(viewController, animated: false, completion: nil)
+    
+    // Daily Report
     var dailyReportVC = DailyReportViewController(nibName: "DailyReportViewController", bundle: nil)
     dailyReportVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
     self.dailyReportVC = dailyReportVC
-
+    //self.viewsArray.addObject(self.dailyReportVC)
+    
+    // Leaderboard
     var leaderboardVC = LeaderboardViewController(nibName: "LeaderboardViewController", bundle: nil)
     leaderboardVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
     self.leaderboardVC = leaderboardVC
+    //self.viewsArray.addObject(self.leaderboardVC)
     
+    // Settings
     var settingsVC = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
     settingsVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
     self.settingsVC = settingsVC
+    //self.viewsArray.addObject(self.settingsVC)
+    
+    // Activity
+    let activityVC = storyboard.instantiateViewControllerWithIdentifier("VTMotionViewController") as UIViewController
+    //var activityVC = SettingsViewController(nibName: "VTMotionViewController", bundle: nil)
+    activityVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
+    self.activityVC = activityVC
+    //self.viewsArray.addObject(self.activityVC)
     
     super.init(coder: aDecoder)
   }
@@ -54,18 +78,34 @@ class BaseViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   
+    dailyReportVC.delegate = self
+    
     // add view controllers
-    self.view.addSubview(mainActivityVC.view)
+    self.view.addSubview(activityVC.view)
     self.view.addSubview(dailyReportVC.view)
     self.view.addSubview(leaderboardVC.view)
+    //self.view.addSubview(pickNodeVC.view)
     self.view.addSubview(settingsVC.view)
+
     
     // hide everything but main
     dailyReportVC.view.hidden = true
     leaderboardVC.view.hidden = true
     settingsVC.view.hidden = true
-  }
+    //pickNodeVC.view.hidden = true
 
+  }
+  
+  func sayHello() {
+    println("Say Hello - DONE IT!! *******")
+  }
+  
+  
+  func didPress1(val: NSString) {
+    self.menuBtn1("sendPlaceHolder")
+    println("DONE IT!! ******* val: \(val)")
+  }
+  
   
   @IBAction func menuButtonToggle(sender: AnyObject) {
     //println("menu clicked")
@@ -82,8 +122,8 @@ class BaseViewController: UIViewController {
   @IBAction func menuBtn1(sender: AnyObject) {
     //println("monitor")
     self.hideVCs()
-    mainActivityVC.view.hidden = false
-    self.view.bringSubviewToFront(mainActivityVC.view)
+    activityVC.view.hidden = false
+    self.view.bringSubviewToFront(activityVC.view)
     self.menuButtonToggle(self)
   }
   
@@ -103,6 +143,13 @@ class BaseViewController: UIViewController {
     self.menuButtonToggle(self)
   }
   
+  /* @IBAction func pickNodeButtonPressed(sender: AnyObject) {
+    self.hideVCs()
+    pickNodeVC.view.hidden = false
+    self.view.bringSubviewToFront(pickNodeVC.view)
+    self.menuButtonToggle(self)
+  } */
+  
   @IBAction func settingsButtonPressed(sender: AnyObject) {
         //println("settings")
     self.hideVCs()
@@ -110,19 +157,33 @@ class BaseViewController: UIViewController {
     self.view.bringSubviewToFront(settingsVC.view)
     self.menuButtonToggle(self)
   }
+
+  func activityViewShow(sender: AnyObject) {
+    self.hideVCs()
+    activityVC.view.hidden = false
+    self.view.bringSubviewToFront(activityVC.view)
+    self.menuButtonToggle(self)
+  }
   
   func hideVCs() {
-    mainActivityVC.view.hidden = true
+    /* for item in self.viewsArray {
+      println(item)
+    } */
+    
+    //mainActivityVC.view.hidden = true
     dailyReportVC.view.hidden = true
     leaderboardVC.view.hidden = true
     settingsVC.view.hidden = true
+    //pickNodeVC.view.hidden = true
+    activityVC.view.hidden = true
   }
   
   func animateCenterPanelXPosition(#targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
     UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
-      self.mainActivityVC.view.frame.origin.x = targetPosition
+      self.activityVC.view.frame.origin.x = targetPosition
       self.dailyReportVC.view.frame.origin.x = targetPosition
       self.leaderboardVC.view.frame.origin.x = targetPosition
+      //self.pickNodeVC.view.frame.origin.x = targetPosition
       self.settingsVC.view.frame.origin.x = targetPosition
       }, completion: completion)
   }

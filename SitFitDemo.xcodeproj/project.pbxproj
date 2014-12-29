@@ -15,6 +15,8 @@
 		BA293E6F1A3B240A002A0AE2 /* DailyReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */; };
 		BA293E721A3B418B002A0AE2 /* MainActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA293E701A3B418B002A0AE2 /* MainActivityViewController.swift */; };
 		BA293E731A3B418B002A0AE2 /* MainActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA293E711A3B418B002A0AE2 /* MainActivityViewController.xib */; };
+		BA8AD8DF1A50DBB900155617 /* PickNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD8DD1A50DBB900155617 /* PickNodeViewController.swift */; };
+		BA8AD8E01A50DBB900155617 /* PickNodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8AD8DE1A50DBB900155617 /* PickNodeViewController.xib */; };
 		BAA719FB1A47B6B200E07999 /* VTNodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA719FA1A47B6B200E07999 /* VTNodeManager.m */; };
 		BAA719FE1A47B6C000E07999 /* VTMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA719FD1A47B6C000E07999 /* VTMotionViewController.m */; };
 		BAA71A001A47B6F100E07999 /* Node_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA719FF1A47B6F100E07999 /* Node_iOS.framework */; };
@@ -56,6 +58,8 @@
 		BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DailyReportViewController.xib; path = ../DailyReportViewController.xib; sourceTree = "<group>"; };
 		BA293E701A3B418B002A0AE2 /* MainActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainActivityViewController.swift; sourceTree = "<group>"; };
 		BA293E711A3B418B002A0AE2 /* MainActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainActivityViewController.xib; sourceTree = "<group>"; };
+		BA8AD8DD1A50DBB900155617 /* PickNodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickNodeViewController.swift; sourceTree = "<group>"; };
+		BA8AD8DE1A50DBB900155617 /* PickNodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickNodeViewController.xib; sourceTree = "<group>"; };
 		BAA719F81A47B6B100E07999 /* SitFitDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SitFitDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		BAA719F91A47B6B200E07999 /* VTNodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNodeManager.h; sourceTree = "<group>"; };
 		BAA719FA1A47B6B200E07999 /* VTNodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNodeManager.m; sourceTree = "<group>"; };
@@ -129,7 +133,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BAA71A131A47BCFF00E07999 /* Demo Code */ = {
+		BAA71A131A47BCFF00E07999 /* Motion Support Code */ = {
 			isa = PBXGroup;
 			children = (
 				BAA71A141A47C38400E07999 /* VTNodeConnectionManagerViewController.h */,
@@ -140,10 +144,8 @@
 				BAA719FA1A47B6B200E07999 /* VTNodeManager.m */,
 				BAA71A011A47B74500E07999 /* CBPeripheral+Node.h */,
 				BAA71A021A47B74500E07999 /* CBPeripheral+Node.m */,
-				BAA719FC1A47B6C000E07999 /* VTMotionViewController.h */,
-				BAA719FD1A47B6C000E07999 /* VTMotionViewController.m */,
 			);
-			name = "Demo Code";
+			name = "Motion Support Code";
 			sourceTree = "<group>";
 		};
 		BACFFE7F1A3923EB0081FCB6 = {
@@ -171,15 +173,19 @@
 			children = (
 				BACFFE961A3923EB0081FCB6 /* LaunchScreen.xib */,
 				BACFFE8D1A3923EB0081FCB6 /* AppDelegate.swift */,
-				BAA71A131A47BCFF00E07999 /* Demo Code */,
 				BACFFE911A3923EB0081FCB6 /* Main.storyboard */,
 				BACFFE8F1A3923EB0081FCB6 /* BaseViewController.swift */,
+				BAA71A131A47BCFF00E07999 /* Motion Support Code */,
+				BAA719FC1A47B6C000E07999 /* VTMotionViewController.h */,
+				BAA719FD1A47B6C000E07999 /* VTMotionViewController.m */,
 				BA293E701A3B418B002A0AE2 /* MainActivityViewController.swift */,
 				BA293E711A3B418B002A0AE2 /* MainActivityViewController.xib */,
 				BA293E6C1A3B240A002A0AE2 /* DailyReportViewController.swift */,
 				BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */,
 				BA293E621A3B1A3D002A0AE2 /* LeaderboardViewController.swift */,
 				BA293E631A3B1A3E002A0AE2 /* LeaderboardViewController.xib */,
+				BA8AD8DD1A50DBB900155617 /* PickNodeViewController.swift */,
+				BA8AD8DE1A50DBB900155617 /* PickNodeViewController.xib */,
 				BA293E661A3B1BB3002A0AE2 /* SettingsViewController.swift */,
 				BA293E671A3B1BB3002A0AE2 /* SettingsViewController.xib */,
 				BACFFE941A3923EB0081FCB6 /* Images.xcassets */,
@@ -264,6 +270,7 @@
 				TargetAttributes = {
 					BACFFE871A3923EB0081FCB6 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = W8PED6Z2A8;
 					};
 					BACFFE9C1A3923EB0081FCB6 = {
 						CreatedOnToolsVersion = 6.1;
@@ -295,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA8AD8E01A50DBB900155617 /* PickNodeViewController.xib in Resources */,
 				BA293E731A3B418B002A0AE2 /* MainActivityViewController.xib in Resources */,
 				BACFFE931A3923EB0081FCB6 /* Main.storyboard in Resources */,
 				BA293E691A3B1BB3002A0AE2 /* SettingsViewController.xib in Resources */,
@@ -331,6 +339,7 @@
 				BA293E681A3B1BB3002A0AE2 /* SettingsViewController.swift in Sources */,
 				BA293E721A3B418B002A0AE2 /* MainActivityViewController.swift in Sources */,
 				BA293E641A3B1A3E002A0AE2 /* LeaderboardViewController.swift in Sources */,
+				BA8AD8DF1A50DBB900155617 /* PickNodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +465,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SitFitDemo",
@@ -463,6 +474,7 @@
 				INFOPLIST_FILE = SitFitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = SitFitDemo;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SitFitDemo/SitFitDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -473,6 +485,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SitFitDemo",
@@ -480,6 +494,7 @@
 				INFOPLIST_FILE = SitFitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = SitFitDemo;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SitFitDemo/SitFitDemo-Bridging-Header.h";
 			};
 			name = Release;

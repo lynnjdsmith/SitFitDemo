@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol oneDelegate {
+  func didPress1(val: NSString)
+}
+
 class DailyReportViewController: UIViewController {
 
   
   @IBOutlet weak var scrollView: UIScrollView!
+  var delegate: oneDelegate?
   
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -24,4 +29,12 @@ class DailyReportViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+  @IBAction func btnPressed1(sender: AnyObject) {
+    println("pressing btnPressed1! *****")
+    if let d = self.delegate {
+      println("inside 'if'! *****")
+      d.didPress1("s")
+    }
+  }
+  
 }

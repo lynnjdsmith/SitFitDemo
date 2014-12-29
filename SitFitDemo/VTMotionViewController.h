@@ -24,7 +24,11 @@
 @property (weak, nonatomic) IBOutlet UIView *accZBar;
 @property (weak, nonatomic) IBOutlet UILabel *accZLabel;
 
-@property (weak, nonatomic) IBOutlet UIView *gyroXFrame;
+
+//@property (weak, nonatomic) CBPeripheral *cbperipheral;
+
+
+/* @property (weak, nonatomic) IBOutlet UIView *gyroXFrame;
 @property (weak, nonatomic) IBOutlet UIView *gyroXBar;
 @property (weak, nonatomic) IBOutlet UILabel *gyroXLabel;
 
@@ -46,6 +50,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *magZFrame;
 @property (weak, nonatomic) IBOutlet UIView *magZBar;
-@property (weak, nonatomic) IBOutlet UILabel *magZLabel;
+@property (weak, nonatomic) IBOutlet UILabel *magZLabel; */
 
 @end

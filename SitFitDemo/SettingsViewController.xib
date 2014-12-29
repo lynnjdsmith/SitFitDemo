@@ -51,7 +51,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bii-vo-XJS">
+                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bii-vo-XJS">
                     <rect key="frame" x="26" y="151" width="548" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="544" id="GIu-dN-y1y"/>
@@ -89,7 +89,10 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="7ml-Fp-Ums"/>
+                    <exclude reference="BQc-KZ-c3p"/>
+                    <exclude reference="HNT-Mk-tf3"/>
                     <exclude reference="kZN-Ka-ULs"/>
+                    <exclude reference="mF5-00-JQh"/>
                 </mask>
             </variation>
         </view>
