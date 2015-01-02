@@ -25,7 +25,8 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
   var statusHeight = 20
   
   //var mainActivityVC :UITableViewController
-  var activityVC :UIViewController
+  //var activityVC :UIViewController
+  var movingGraphVC :UIViewController
   var dailyReportVC :DailyReportViewController
   var leaderboardVC :LeaderboardViewController
   //var pickNodeVC :UITableViewController
@@ -47,6 +48,19 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     // .instantiatViewControllerWithIdentifier() returns AnyObject! this must be downcast to utilize it
     //self.presentViewController(viewController, animated: false, completion: nil)
     
+    // Activity
+    //let activityVC = storyboard.instantiateViewControllerWithIdentifier("VTMotionViewController") as UIViewController
+    //var activityVC = SettingsViewController(nibName: "VTMotionViewController", bundle: nil)
+    //activityVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
+    //self.activityVC = activityVC
+    //self.viewsArray.addObject(self.activityVC)
+    
+    // Moving Graph
+    let movingGraphVC = GraphViewController(nibName: "GraphViewController", bundle: nil)
+    movingGraphVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
+    self.movingGraphVC = movingGraphVC
+    //self.viewsArray.addObject(self.activityVC)
+    
     // Daily Report
     var dailyReportVC = DailyReportViewController(nibName: "DailyReportViewController", bundle: nil)
     dailyReportVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
@@ -65,12 +79,7 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     self.settingsVC = settingsVC
     //self.viewsArray.addObject(self.settingsVC)
     
-    // Activity
-    let activityVC = storyboard.instantiateViewControllerWithIdentifier("VTMotionViewController") as UIViewController
-    //var activityVC = SettingsViewController(nibName: "VTMotionViewController", bundle: nil)
-    activityVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
-    self.activityVC = activityVC
-    //self.viewsArray.addObject(self.activityVC)
+
     
     super.init(coder: aDecoder)
   }
@@ -81,19 +90,17 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     dailyReportVC.delegate = self
     
     // add view controllers
-    self.view.addSubview(activityVC.view)
+    //self.view.addSubview(activityVC.view)
+    self.view.addSubview(movingGraphVC.view)
     self.view.addSubview(dailyReportVC.view)
     self.view.addSubview(leaderboardVC.view)
-    //self.view.addSubview(pickNodeVC.view)
     self.view.addSubview(settingsVC.view)
 
     
-    // hide everything but main
+    // hide everything
     dailyReportVC.view.hidden = true
     leaderboardVC.view.hidden = true
     settingsVC.view.hidden = true
-    //pickNodeVC.view.hidden = true
-
   }
   
   func sayHello() {
@@ -102,7 +109,7 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
   
   
   func didPress1(val: NSString) {
-    self.menuBtn1("sendPlaceHolder")
+    //self.menuBtn1("sendPlaceHolder")
     println("DONE IT!! ******* val: \(val)")
   }
   
@@ -119,11 +126,18 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     }
   }
 
-  @IBAction func menuBtn1(sender: AnyObject) {
+  /* @IBAction func menuBtn1(sender: AnyObject) {
     //println("monitor")
     self.hideVCs()
     activityVC.view.hidden = false
     self.view.bringSubviewToFront(activityVC.view)
+    self.menuButtonToggle(self)
+  } */
+  
+  @IBAction func movingGraphButtonPressed(sender: AnyObject) {
+    self.hideVCs()
+    movingGraphVC.view.hidden = false
+    self.view.bringSubviewToFront(movingGraphVC.view)
     self.menuButtonToggle(self)
   }
   
@@ -159,10 +173,10 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
   }
 
   func activityViewShow(sender: AnyObject) {
-    self.hideVCs()
+  /*   self.hideVCs()
     activityVC.view.hidden = false
     self.view.bringSubviewToFront(activityVC.view)
-    self.menuButtonToggle(self)
+    self.menuButtonToggle(self) */
   }
   
   func hideVCs() {
@@ -170,20 +184,20 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
       println(item)
     } */
     
-    //mainActivityVC.view.hidden = true
+    //activityVC.view.hidden = true
     dailyReportVC.view.hidden = true
+    movingGraphVC.view.hidden = true
     leaderboardVC.view.hidden = true
     settingsVC.view.hidden = true
-    //pickNodeVC.view.hidden = true
-    activityVC.view.hidden = true
+
   }
   
   func animateCenterPanelXPosition(#targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
     UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
-      self.activityVC.view.frame.origin.x = targetPosition
+      //self.activityVC.view.frame.origin.x = targetPosition
+      self.movingGraphVC.view.frame.origin.x = targetPosition
       self.dailyReportVC.view.frame.origin.x = targetPosition
       self.leaderboardVC.view.frame.origin.x = targetPosition
-      //self.pickNodeVC.view.frame.origin.x = targetPosition
       self.settingsVC.view.frame.origin.x = targetPosition
       }, completion: completion)
   }

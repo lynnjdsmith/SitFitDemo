@@ -8,10 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "VTNodeManager.h"
-
 #import <Node_iOS/Node.h>
 
+
+@class VTMotionViewController;
+
+@protocol nodeInputDelegate <NSObject>
+@required
+  -(void)putValues;
+@end
+
+
+
 @interface VTMotionViewController : UIViewController
+
+//@property (nonatomic,strong) id delegate;
+
 @property (weak, nonatomic) IBOutlet UIView *accXBar;
 @property (weak, nonatomic) IBOutlet UIView *accXFrame;
 @property (weak, nonatomic) IBOutlet UILabel *accXLabel;
@@ -53,3 +65,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *magZLabel; */
 
 @end
+
+
+
+
+

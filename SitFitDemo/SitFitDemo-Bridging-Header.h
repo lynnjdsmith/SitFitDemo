@@ -3,5 +3,11 @@
 //
 
 #import "VTNodeManager.h"
+#import "GraphViewController.h"
+#import "AccelerometerFilter.h"
+#import "GraphView.h"
+
+#import "VTMotionViewController.h"
+
 //#import "VTNodeConnectionManagerViewController.h"
 //#import <Instabug/Instabug.h>

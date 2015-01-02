@@ -38,12 +38,22 @@
                                             <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xW-yO-Td7">
+                                        <rect key="frame" x="30" y="80" width="98" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="gY0-tU-1qs"/>
+                                        </constraints>
+                                        <state key="normal" title="Moving Graph">
+                                            <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
-                                            <action selector="menuBtn1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qlz-Y1-o4X"/>
+                                            <action selector="movingGraphButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iTE-A2-uAc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSQ-9T-wPE">
-                                        <rect key="frame" x="30" y="80" width="100" height="30"/>
+                                        <rect key="frame" x="30" y="130" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Ekh-WV-kQV"/>
                                         </constraints>
@@ -56,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fE2-tP-hSP">
-                                        <rect key="frame" x="30" y="130" width="100" height="30"/>
+                                        <rect key="frame" x="30" y="180" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="dV8-IX-7x4"/>
                                         </constraints>
@@ -69,7 +79,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CS-b2-R5O">
-                                        <rect key="frame" x="30" y="180" width="100" height="30"/>
+                                        <rect key="frame" x="30" y="230" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="JGf-cD-oCL"/>
                                             <constraint firstAttribute="width" constant="120" id="Zmj-YD-YO1"/>
@@ -85,10 +95,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="zSQ-9T-wPE" firstAttribute="top" secondItem="1xW-yO-Td7" secondAttribute="bottom" constant="20" id="6Jt-8L-b6F"/>
                                     <constraint firstAttribute="trailing" secondItem="eKc-6O-ARH" secondAttribute="trailing" constant="65" id="GU8-qX-pWC"/>
+                                    <constraint firstItem="fE2-tP-hSP" firstAttribute="top" secondItem="zSQ-9T-wPE" secondAttribute="bottom" constant="20" id="JCB-oo-KG2"/>
+                                    <constraint firstItem="zSQ-9T-wPE" firstAttribute="top" secondItem="1xW-yO-Td7" secondAttribute="bottom" constant="20" id="Z3E-fe-EOx"/>
+                                    <constraint firstItem="1xW-yO-Td7" firstAttribute="leading" secondItem="2eB-C6-rdE" secondAttribute="leading" constant="20" id="aMn-9E-26i"/>
                                     <constraint firstAttribute="width" constant="200" id="bFB-Yn-5Fc"/>
                                     <constraint firstItem="eKc-6O-ARH" firstAttribute="top" secondItem="2eB-C6-rdE" secondAttribute="top" constant="30" id="bcK-Pn-MXU"/>
-                                    <constraint firstItem="fE2-tP-hSP" firstAttribute="top" secondItem="zSQ-9T-wPE" secondAttribute="bottom" constant="20" id="cZX-0E-7Zf"/>
+                                    <constraint firstItem="fE2-tP-hSP" firstAttribute="top" secondItem="zSQ-9T-wPE" secondAttribute="bottom" constant="8" symbolic="YES" id="cZX-0E-7Zf"/>
+                                    <constraint firstItem="1xW-yO-Td7" firstAttribute="top" secondItem="eKc-6O-ARH" secondAttribute="bottom" constant="20" id="df6-mk-HFe"/>
                                     <constraint firstItem="zSQ-9T-wPE" firstAttribute="leading" secondItem="2eB-C6-rdE" secondAttribute="leading" constant="20" id="ezd-fE-fhb"/>
                                     <constraint firstItem="eKc-6O-ARH" firstAttribute="leading" secondItem="2eB-C6-rdE" secondAttribute="leading" constant="20" id="hEu-PJ-bh8"/>
                                     <constraint firstAttribute="trailing" secondItem="zSQ-9T-wPE" secondAttribute="trailing" constant="65" id="hND-LA-68a"/>
@@ -100,7 +115,10 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="GU8-qX-pWC"/>
+                                        <exclude reference="Z3E-fe-EOx"/>
                                         <exclude reference="hND-LA-68a"/>
+                                        <exclude reference="nrU-JK-Zn0"/>
+                                        <exclude reference="cZX-0E-7Zf"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -275,7 +293,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJq-Up-ICI">
-                                <rect key="frame" x="16" y="118.5" width="50" height="38.5"/>
+                                <rect key="frame" x="16" y="118" width="50" height="38.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7sX-FG-8PY"/>
                                     <constraint firstAttribute="width" constant="11" id="bmE-y4-TfR"/>
@@ -377,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYc-8u-cdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3112" y="339.5"/>
+            <point key="canvasLocation" x="3112" y="466"/>
         </scene>
     </scenes>
 </document>

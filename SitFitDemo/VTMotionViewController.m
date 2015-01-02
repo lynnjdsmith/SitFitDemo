@@ -15,7 +15,7 @@
 @implementation VTMotionViewController
 
 //@synthesize cbperipheral = _cbperipheral;
-
+//@synthesize delegate;
 
 -(void)viewDidLoad
 {    
@@ -23,6 +23,9 @@
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeDeviceListUpdated:) name:kNodeDeviceListUpdate object:[VTNodeManager getInstance]];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedThatNodeDeviceIsReady:) name:VTNodeDeviceIsReadyNotification object:[VTNodeManager getInstance]];
+  
+  //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self.delegate
+   //                              selector:@selector(putValues) userInfo:nil repeats:NO];
   
 }
 
@@ -86,6 +89,15 @@
     //self.accZFrame.frame = CGRectMake(400,100,50,200);
     //[self updateBarDisplayWithPercent:reading.z/accScaleMax forBar:self.accZBar withFrame:self.accZFrame];
     self.accZLabel.text = [NSString stringWithFormat:@"%.2f g", reading.z];
+  
+  
+  //if (self.delegate && [self.delegate respondsToSelector:@selector(optionalDelegateMethodOne)]) {
+    //NSLog(@"put?");
+  //if (self.delegate) {
+   // NSLog(@"putting values!");
+    //[self.delegate putValues];
+  //}
+  
 }
 
 -(void)nodeDeviceDidUpdateGyroReading:(VTNodeDevice *)device withReading:(VTSensorReading *)reading {
