@@ -13,8 +13,8 @@
 		BA293E691A3B1BB3002A0AE2 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA293E671A3B1BB3002A0AE2 /* SettingsViewController.xib */; };
 		BA293E6E1A3B240A002A0AE2 /* DailyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA293E6C1A3B240A002A0AE2 /* DailyReportViewController.swift */; };
 		BA293E6F1A3B240A002A0AE2 /* DailyReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */; };
-		BA293E721A3B418B002A0AE2 /* MainActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA293E701A3B418B002A0AE2 /* MainActivityViewController.swift */; };
-		BA293E731A3B418B002A0AE2 /* MainActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA293E711A3B418B002A0AE2 /* MainActivityViewController.xib */; };
+		BA293E721A3B418B002A0AE2 /* BodyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA293E701A3B418B002A0AE2 /* BodyViewController.swift */; };
+		BA293E731A3B418B002A0AE2 /* BodyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA293E711A3B418B002A0AE2 /* BodyViewController.xib */; };
 		BA610CE41A563EED009F675F /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA610CE31A563EED009F675F /* GraphViewController.xib */; };
 		BA610CE71A563F00009F675F /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA610CE61A563F00009F675F /* GraphView.m */; };
 		BA610CEC1A563F3F009F675F /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA610CE91A563F3F009F675F /* GraphViewController.m */; };
@@ -22,8 +22,6 @@
 		BA610CEF1A56427F009F675F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA610CEE1A56427F009F675F /* Localizable.strings */; };
 		BA610CF11A5643EC009F675F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA610CF01A5643EC009F675F /* QuartzCore.framework */; };
 		BA610CF31A5643F1009F675F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA610CF21A5643F1009F675F /* CoreGraphics.framework */; };
-		BA8AD8DF1A50DBB900155617 /* PickNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD8DD1A50DBB900155617 /* PickNodeViewController.swift */; };
-		BA8AD8E01A50DBB900155617 /* PickNodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8AD8DE1A50DBB900155617 /* PickNodeViewController.xib */; };
 		BAA719FB1A47B6B200E07999 /* VTNodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA719FA1A47B6B200E07999 /* VTNodeManager.m */; };
 		BAA719FE1A47B6C000E07999 /* VTMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA719FD1A47B6C000E07999 /* VTMotionViewController.m */; };
 		BAA71A001A47B6F100E07999 /* Node_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA719FF1A47B6F100E07999 /* Node_iOS.framework */; };
@@ -63,8 +61,8 @@
 		BA293E671A3B1BB3002A0AE2 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		BA293E6C1A3B240A002A0AE2 /* DailyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyReportViewController.swift; path = ../DailyReportViewController.swift; sourceTree = "<group>"; };
 		BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DailyReportViewController.xib; path = ../DailyReportViewController.xib; sourceTree = "<group>"; };
-		BA293E701A3B418B002A0AE2 /* MainActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainActivityViewController.swift; sourceTree = "<group>"; };
-		BA293E711A3B418B002A0AE2 /* MainActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainActivityViewController.xib; sourceTree = "<group>"; };
+		BA293E701A3B418B002A0AE2 /* BodyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyViewController.swift; sourceTree = "<group>"; };
+		BA293E711A3B418B002A0AE2 /* BodyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BodyViewController.xib; sourceTree = "<group>"; };
 		BA610CE31A563EED009F675F /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphViewController.xib; sourceTree = "<group>"; };
 		BA610CE51A563F00009F675F /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		BA610CE61A563F00009F675F /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
@@ -75,8 +73,6 @@
 		BA610CEE1A56427F009F675F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BA610CF01A5643EC009F675F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BA610CF21A5643F1009F675F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BA8AD8DD1A50DBB900155617 /* PickNodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickNodeViewController.swift; sourceTree = "<group>"; };
-		BA8AD8DE1A50DBB900155617 /* PickNodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickNodeViewController.xib; sourceTree = "<group>"; };
 		BAA719F81A47B6B100E07999 /* SitFitDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SitFitDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		BAA719F91A47B6B200E07999 /* VTNodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNodeManager.h; sourceTree = "<group>"; };
 		BAA719FA1A47B6B200E07999 /* VTNodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNodeManager.m; sourceTree = "<group>"; };
@@ -140,6 +136,7 @@
 		BA610CF41A56453D009F675F /* Graph View */ = {
 			isa = PBXGroup;
 			children = (
+				BA610CE31A563EED009F675F /* GraphViewController.xib */,
 				BA610CE81A563F3F009F675F /* GraphViewController.h */,
 				BA610CE91A563F3F009F675F /* GraphViewController.m */,
 				BA610CEA1A563F3F009F675F /* AccelerometerFilter.h */,
@@ -179,6 +176,8 @@
 				BAA719FA1A47B6B200E07999 /* VTNodeManager.m */,
 				BAA71A011A47B74500E07999 /* CBPeripheral+Node.h */,
 				BAA71A021A47B74500E07999 /* CBPeripheral+Node.m */,
+				BAA719FC1A47B6C000E07999 /* VTMotionViewController.h */,
+				BAA719FD1A47B6C000E07999 /* VTMotionViewController.m */,
 			);
 			name = "Motion Support Code";
 			sourceTree = "<group>";
@@ -206,26 +205,19 @@
 		BACFFE8A1A3923EB0081FCB6 /* SitFitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				BACFFE961A3923EB0081FCB6 /* LaunchScreen.xib */,
-				BACFFE8D1A3923EB0081FCB6 /* AppDelegate.swift */,
 				BACFFE911A3923EB0081FCB6 /* Main.storyboard */,
+				BACFFE8D1A3923EB0081FCB6 /* AppDelegate.swift */,
 				BACFFE8F1A3923EB0081FCB6 /* BaseViewController.swift */,
+				BA293E711A3B418B002A0AE2 /* BodyViewController.xib */,
+				BA293E701A3B418B002A0AE2 /* BodyViewController.swift */,
+				BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */,
+				BA293E6C1A3B240A002A0AE2 /* DailyReportViewController.swift */,
+				BA293E631A3B1A3E002A0AE2 /* LeaderboardViewController.xib */,
+				BA293E621A3B1A3D002A0AE2 /* LeaderboardViewController.swift */,
+				BA293E671A3B1BB3002A0AE2 /* SettingsViewController.xib */,
+				BA293E661A3B1BB3002A0AE2 /* SettingsViewController.swift */,
 				BAA71A131A47BCFF00E07999 /* Motion Support Code */,
 				BA610CF41A56453D009F675F /* Graph View */,
-				BAA719FC1A47B6C000E07999 /* VTMotionViewController.h */,
-				BAA719FD1A47B6C000E07999 /* VTMotionViewController.m */,
-				BA293E701A3B418B002A0AE2 /* MainActivityViewController.swift */,
-				BA293E711A3B418B002A0AE2 /* MainActivityViewController.xib */,
-				BA293E6C1A3B240A002A0AE2 /* DailyReportViewController.swift */,
-				BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */,
-				BA293E621A3B1A3D002A0AE2 /* LeaderboardViewController.swift */,
-				BA293E631A3B1A3E002A0AE2 /* LeaderboardViewController.xib */,
-				BA8AD8DD1A50DBB900155617 /* PickNodeViewController.swift */,
-				BA8AD8DE1A50DBB900155617 /* PickNodeViewController.xib */,
-				BA293E661A3B1BB3002A0AE2 /* SettingsViewController.swift */,
-				BA293E671A3B1BB3002A0AE2 /* SettingsViewController.xib */,
-				BA610CE31A563EED009F675F /* GraphViewController.xib */,
-				BAA719F81A47B6B100E07999 /* SitFitDemo-Bridging-Header.h */,
 				BACFFE941A3923EB0081FCB6 /* Images.xcassets */,
 				BACFFE8B1A3923EB0081FCB6 /* Supporting Files */,
 			);
@@ -235,6 +227,8 @@
 		BACFFE8B1A3923EB0081FCB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BACFFE961A3923EB0081FCB6 /* LaunchScreen.xib */,
+				BAA719F81A47B6B100E07999 /* SitFitDemo-Bridging-Header.h */,
 				BACFFE8C1A3923EB0081FCB6 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -339,8 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8AD8E01A50DBB900155617 /* PickNodeViewController.xib in Resources */,
-				BA293E731A3B418B002A0AE2 /* MainActivityViewController.xib in Resources */,
+				BA293E731A3B418B002A0AE2 /* BodyViewController.xib in Resources */,
 				BA610CEF1A56427F009F675F /* Localizable.strings in Resources */,
 				BACFFE931A3923EB0081FCB6 /* Main.storyboard in Resources */,
 				BA293E691A3B1BB3002A0AE2 /* SettingsViewController.xib in Resources */,
@@ -377,11 +370,10 @@
 				BAA719FB1A47B6B200E07999 /* VTNodeManager.m in Sources */,
 				BACFFE8E1A3923EB0081FCB6 /* AppDelegate.swift in Sources */,
 				BA293E681A3B1BB3002A0AE2 /* SettingsViewController.swift in Sources */,
-				BA293E721A3B418B002A0AE2 /* MainActivityViewController.swift in Sources */,
+				BA293E721A3B418B002A0AE2 /* BodyViewController.swift in Sources */,
 				BA610CE71A563F00009F675F /* GraphView.m in Sources */,
 				BA610CEC1A563F3F009F675F /* GraphViewController.m in Sources */,
 				BA293E641A3B1A3E002A0AE2 /* LeaderboardViewController.swift in Sources */,
-				BA8AD8DF1A50DBB900155617 /* PickNodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

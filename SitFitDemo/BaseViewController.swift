@@ -24,12 +24,11 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
   var menuWidth = 160
   var statusHeight = 20
   
-  //var mainActivityVC :UITableViewController
+  var bodyVC :BodyViewController
   //var activityVC :UIViewController
   var movingGraphVC :UIViewController
   var dailyReportVC :DailyReportViewController
   var leaderboardVC :LeaderboardViewController
-  //var pickNodeVC :UITableViewController
   var settingsVC :SettingsViewController
 
   var viewsArray :AnyObject = []
@@ -55,11 +54,17 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     //self.activityVC = activityVC
     //self.viewsArray.addObject(self.activityVC)
     
+    // Main Activity
+    var bodyVC = BodyViewController(nibName: "BodyViewController", bundle: nil)
+    bodyVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
+    self.bodyVC = bodyVC
+    //self.viewsArray.addObject(self.bodyVC)
+    
     // Moving Graph
     let movingGraphVC = GraphViewController(nibName: "GraphViewController", bundle: nil)
     movingGraphVC.view.frame = CGRectMake(0, menuHeight, screenSize.width, screenSize.height - menuHeight)
     self.movingGraphVC = movingGraphVC
-    //self.viewsArray.addObject(self.activityVC)
+    //self.viewsArray.addObject(self.movingGraphVC)
     
     // Daily Report
     var dailyReportVC = DailyReportViewController(nibName: "DailyReportViewController", bundle: nil)
@@ -79,8 +84,6 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     self.settingsVC = settingsVC
     //self.viewsArray.addObject(self.settingsVC)
     
-
-    
     super.init(coder: aDecoder)
   }
 
@@ -91,6 +94,7 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     
     // add view controllers
     //self.view.addSubview(activityVC.view)
+    self.view.addSubview(bodyVC.view)
     self.view.addSubview(movingGraphVC.view)
     self.view.addSubview(dailyReportVC.view)
     self.view.addSubview(leaderboardVC.view)
@@ -98,6 +102,7 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
 
     
     // hide everything
+    movingGraphVC.view.hidden = true
     dailyReportVC.view.hidden = true
     leaderboardVC.view.hidden = true
     settingsVC.view.hidden = true
@@ -126,13 +131,13 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     }
   }
 
-  /* @IBAction func menuBtn1(sender: AnyObject) {
+  @IBAction func bodyButtonPressed(sender: AnyObject) {
     //println("monitor")
     self.hideVCs()
-    activityVC.view.hidden = false
-    self.view.bringSubviewToFront(activityVC.view)
+    bodyVC.view.hidden = false
+    self.view.bringSubviewToFront(bodyVC.view)
     self.menuButtonToggle(self)
-  } */
+  }
   
   @IBAction func movingGraphButtonPressed(sender: AnyObject) {
     self.hideVCs()
@@ -185,6 +190,7 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
     } */
     
     //activityVC.view.hidden = true
+    bodyVC.view.hidden = true
     dailyReportVC.view.hidden = true
     movingGraphVC.view.hidden = true
     leaderboardVC.view.hidden = true
@@ -195,6 +201,7 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
   func animateCenterPanelXPosition(#targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
     UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
       //self.activityVC.view.frame.origin.x = targetPosition
+      self.bodyVC.view.frame.origin.x = targetPosition
       self.movingGraphVC.view.frame.origin.x = targetPosition
       self.dailyReportVC.view.frame.origin.x = targetPosition
       self.leaderboardVC.view.frame.origin.x = targetPosition
