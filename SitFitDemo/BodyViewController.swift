@@ -18,8 +18,8 @@ class BodyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifiedOfMovement:", name: GraphViewMovementNotification, object: nil)
+          }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,6 +37,12 @@ class BodyViewController: UIViewController {
   @IBAction func Btn3(sender: AnyObject) {
     showMovement(muscles_thigh)
   }
+  
+  func notifiedOfMovement(notification: NSNotification){
+    //println("Here!")
+    //println(notification)
+  }
+  
   
   func showMovement(theImage: UIImageView) {
     animateImageViewOn(theImage)

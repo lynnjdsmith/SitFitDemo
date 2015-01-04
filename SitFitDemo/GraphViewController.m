@@ -1,5 +1,4 @@
 
-
 #import "GraphViewController.h"
 #import "GraphView.h"
 #import "AccelerometerFilter.h"
@@ -43,8 +42,8 @@
 	isPaused = NO;
 	useAdaptive = NO;
 	[self changeFilter:[LowpassFilter class]];
-	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0 / kUpdateFrequency];
-	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
+	//[[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0 / kUpdateFrequency];
+	//[[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	
 	[unfiltered setIsAccessibilityElement:YES];
 	[unfiltered setAccessibilityLabel:NSLocalizedString(@"unfilteredGraph", @"")];
@@ -68,7 +67,7 @@
 
 - (void) notifiedThatNodeDeviceIsReady:(NSNotification *)notification
 {
-  NSLog(@"***** notified That Node Device Is Ready 2 *****");
+  NSLog(@"***** Node Device Is Ready *****");
   
   [VTNodeManager getInstance].selectedNodeDevice.delegate = self;
   [[VTNodeManager getInstance].selectedNodeDevice setStreamModeAcc:YES Gyro:YES Mag:YES withTimestampingEnabled:YES];
@@ -105,15 +104,16 @@
   static float accScaleMax = 16.0f;
   //self.accXLabel.text = [NSString stringWithFormat:@"%.2f g", reading.x];
   //self.accYLabel.text = [NSString stringWithFormat:@"%.2f g", reading.y];
-  //NSLog(@"Here!");
+  //NSLog(@"Sending!");
 
+  [[NSNotificationCenter defaultCenter] postNotificationName:GraphViewMovementNotification object:reading userInfo: nil];
   
   // Update the accelerometer graph view
   if (!isPaused)
   {
     //[filter addAcceleration:acceleration];
-    [unfiltered addX:reading.x y:reading.y z:reading.x];
-    [filtered addX:reading.x y:reading.y z:reading.z];
+    [unfiltered addX:reading.x y:reading.y z:reading.z];  
+    //[filtered addX:reading.x y:reading.y z:reading.z];
   }
   
 }

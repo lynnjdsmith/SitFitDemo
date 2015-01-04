@@ -177,7 +177,8 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 
 - (BOOL)addX:(UIAccelerationValue)x y:(UIAccelerationValue)y z:(UIAccelerationValue)z
 {
-	// If this segment is not full, then we add a new acceleration value to the history.
+  NSLog(@"z: %f", z);
+  // If this segment is not full, then we add a new acceleration value to the history.
 	if (index > 0)
 	{
 		// First decrement, both to get to a zero-based index and to flag one fewer position left

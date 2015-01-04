@@ -127,7 +127,7 @@
 }
 
 -(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
-    NSLog(@"didConnectPeripheral");
+    //NSLog(@"didConnectPeripheral");
     self.selectedNodeDevice = [[VTNodeDevice alloc] initWithDelegate:self withDevice:peripheral];
 }
 
@@ -141,7 +141,7 @@
 #pragma mark - NodeDeviceDelegate
 
 -(void)nodeDeviceIsReadyForCommunication:(VTNodeDevice *)device {
-    NSLog(@"nodeDeviceIsReadyForCommunication");
+    //NSLog(@"nodeDeviceIsReadyForCommunication");
     //Send a notification that Node is ready to communicate
     if([device.peripheral isEqual:self.selectedNodeDevice.peripheral]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:VTNodeDeviceIsReadyNotification object:self userInfo: nil];

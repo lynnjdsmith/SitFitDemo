@@ -205,8 +205,8 @@
 		BACFFE8A1A3923EB0081FCB6 /* SitFitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				BACFFE911A3923EB0081FCB6 /* Main.storyboard */,
 				BACFFE8D1A3923EB0081FCB6 /* AppDelegate.swift */,
+				BACFFE911A3923EB0081FCB6 /* Main.storyboard */,
 				BACFFE8F1A3923EB0081FCB6 /* BaseViewController.swift */,
 				BA293E711A3B418B002A0AE2 /* BodyViewController.xib */,
 				BA293E701A3B418B002A0AE2 /* BodyViewController.swift */,

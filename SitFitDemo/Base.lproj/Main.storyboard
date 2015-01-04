@@ -173,10 +173,7 @@
                     <navigationItem key="navigationItem" id="mmm-ii-Hjt"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="dailyReportButton" destination="zSQ-9T-wPE" id="Mfe-cz-i8h"/>
-                        <outlet property="leaderboardButton" destination="fE2-tP-hSP" id="six-5e-tpV"/>
                         <outlet property="menuButton" destination="K98-YO-8lb" id="Gjb-yM-62E"/>
-                        <outlet property="settingsButton" destination="9CS-b2-R5O" id="Oun-DL-w4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
