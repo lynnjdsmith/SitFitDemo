@@ -18,25 +18,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="person_full_transp2" translatesAutoresizingMaskIntoConstraints="NO" id="gtq-IR-3lm">
-                    <rect key="frame" x="55" y="10" width="200" height="378"/>
+                    <rect key="frame" x="55" y="0.0" width="200" height="378"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="rey-AM-3JO"/>
                         <constraint firstAttribute="height" constant="378" id="rz0-LF-BG5"/>
                     </constraints>
                 </imageView>
                 <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="muscles_middle" translatesAutoresizingMaskIntoConstraints="NO" id="rRO-e3-9T6">
-                    <rect key="frame" x="139" y="148" width="29" height="72"/>
+                    <rect key="frame" x="139" y="138" width="29" height="72"/>
                 </imageView>
                 <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="muscles_sides" translatesAutoresizingMaskIntoConstraints="NO" id="Hds-a1-i6j">
-                    <rect key="frame" x="120" y="114" width="67" height="88"/>
+                    <rect key="frame" x="120" y="104" width="67" height="88"/>
                 </imageView>
                 <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="muscles_thigh" translatesAutoresizingMaskIntoConstraints="NO" id="Lx1-GJ-ohM">
-                    <rect key="frame" x="121" y="193" width="66" height="93"/>
+                    <rect key="frame" x="121" y="183" width="66" height="93"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ6-yH-K2c">
-                    <rect key="frame" x="37" y="391" width="110" height="30"/>
+                    <rect key="frame" x="21" y="381" width="90" height="30"/>
                     <color key="backgroundColor" red="0.34757937420255364" green="0.47390843374431191" blue="0.86264054232804233" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                     <state key="normal" title="Forward / Back">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,9 +46,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC9-sG-Zaw">
-                    <rect key="frame" x="160" y="391" width="110" height="30"/>
+                    <rect key="frame" x="207" y="381" width="90" height="30"/>
                     <color key="backgroundColor" red="0.34757937420255364" green="0.47390843374431191" blue="0.86264054232804233" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                     <state key="normal" title="Side to Side">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,9 +58,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-bj-NR2">
-                    <rect key="frame" x="98" y="429" width="110" height="30"/>
+                    <rect key="frame" x="114" y="381" width="90" height="30"/>
                     <color key="backgroundColor" red="0.34757937420255364" green="0.47390843374431191" blue="0.86264054232804233" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                     <state key="normal" title="Circles">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,7 +72,7 @@
             </subviews>
             <color key="backgroundColor" red="0.97620768082121001" green="0.99773552908954" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="gtq-IR-3lm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="1oq-zz-ke1"/>
+                <constraint firstItem="gtq-IR-3lm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1oq-zz-ke1"/>
                 <constraint firstItem="gtq-IR-3lm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="tvx-9T-bGZ"/>
             </constraints>
             <point key="canvasLocation" x="32" y="-307"/>
