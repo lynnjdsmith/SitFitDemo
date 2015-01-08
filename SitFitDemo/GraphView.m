@@ -177,7 +177,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 
 - (BOOL)addX:(UIAccelerationValue)x y:(UIAccelerationValue)y z:(UIAccelerationValue)z
 {
-  NSLog(@"z: %f", z);
+  //NSLog(@"z: %f", z);
   // If this segment is not full, then we add a new acceleration value to the history.
 	if (index > 0)
 	{

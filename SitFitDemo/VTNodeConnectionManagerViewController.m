@@ -39,7 +39,7 @@
   
      NSLog(@"VIEW DID LOAD VTNODECONNMANAGERVC");
     [delegate sayHello];
-  
+
     [super viewDidLoad];
 }
 

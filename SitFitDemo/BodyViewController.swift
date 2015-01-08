@@ -10,21 +10,21 @@ import UIKit
 
 class BodyViewController: UIViewController {
 
-  @IBOutlet weak var muscles_sides: UIImageView!
-  @IBOutlet weak var muscles_middle: UIImageView!
-  @IBOutlet weak var muscles_thigh: UIImageView!
+  @IBOutlet weak var muscles_sides    :UIImageView!
+  @IBOutlet weak var muscles_middle   :UIImageView!
+  @IBOutlet weak var muscles_thigh    :UIImageView!
   
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+      super.viewDidLoad()
 
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifiedOfMovement:", name: GraphViewMovementNotification, object: nil)
-          }
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifiedOfMovement:", name: GraphViewMovementNotification, object: nil)
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
     
   @IBAction func Btn1(sender: AnyObject) {
     showMovement(muscles_sides)
@@ -39,8 +39,24 @@ class BodyViewController: UIViewController {
   }
   
   func notifiedOfMovement(notification: NSNotification){
-    //println("Here!")
-    //println(notification)
+    //println(notification.userInfo?)
+  
+    
+    if let id:VTSensorReading = notification.userInfo?["reading"] as? VTSensorReading {
+      //println(id.x)
+    }
+    
+    
+    
+    
+    /* if let s:VTSensorReading = userInfo?["VTSensorReading"] as? VTSensorReading {
+      // When we get here, we know "ID" is a valid key
+      // and that the value is a String.
+      var theReading = s
+      println(s.x)
+    } */
+    //var theReading = notification.userInfo?["VTSensorReading"] as? VTSensorReading
+    //println(theReading)
   }
   
   

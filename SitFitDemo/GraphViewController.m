@@ -18,6 +18,7 @@
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *pause;
 @property (nonatomic, strong) IBOutlet UILabel *filterLabel;
 @property (strong, nonatomic) NSArray *currentNodeDeviceList;
+@property (nonatomic) BOOL deviceConnected;
 
 - (IBAction)pauseOrResume:(id)sender;
 - (IBAction)filterSelect:(id)sender;
@@ -52,10 +53,26 @@
 	[filtered setAccessibilityLabel:NSLocalizedString(@"filteredGraph", @"")];
   
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeDeviceListUpdated:) name:kNodeDeviceListUpdate object:[VTNodeManager getInstance]];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedThatNodeDeviceIsReady:) name:VTNodeDeviceIsReadyNotification object:[VTNodeManager getInstance]]; 
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedThatNodeDeviceIsReady:) name:VTNodeDeviceIsReadyNotification object:[VTNodeManager getInstance]];
+  
+  [NSTimer scheduledTimerWithTimeInterval:3.0 target:self
+                                 selector:@selector(refreshDevice) userInfo:nil repeats:NO];
+  
+  self.deviceConnected = false;
+
 }
 
 
+-(void)refreshDevice {
+    //NSLog(@"refreshDevice");
+  if (!self.deviceConnected) {
+    //NSLog(@"refreshDevice INNER");
+    [VTNodeManager stopFindingDevices];
+    [VTNodeManager startFindingDevices];
+    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self
+                                 selector:@selector(refreshDevice) userInfo:nil repeats:NO];
+  }
+}
 
 -(void) nodeDeviceListUpdated:(NSNotification *)notification {
   //NSLog(@"***** node Device List Updated *****");
@@ -68,7 +85,7 @@
 - (void) notifiedThatNodeDeviceIsReady:(NSNotification *)notification
 {
   NSLog(@"***** Node Device Is Ready *****");
-  
+  self.deviceConnected = true;
   [VTNodeManager getInstance].selectedNodeDevice.delegate = self;
   [[VTNodeManager getInstance].selectedNodeDevice setStreamModeAcc:YES Gyro:YES Mag:YES withTimestampingEnabled:YES];
 }
@@ -106,7 +123,9 @@
   //self.accYLabel.text = [NSString stringWithFormat:@"%.2f g", reading.y];
   //NSLog(@"Sending!");
 
-  [[NSNotificationCenter defaultCenter] postNotificationName:GraphViewMovementNotification object:reading userInfo: nil];
+  NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reading forKey:@"reading"];
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:GraphViewMovementNotification object:nil userInfo: userInfo];
   
   // Update the accelerometer graph view
   if (!isPaused)
