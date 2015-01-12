@@ -57,7 +57,6 @@
   
   [NSTimer scheduledTimerWithTimeInterval:3.0 target:self
                                  selector:@selector(refreshDevice) userInfo:nil repeats:NO];
-  
   self.deviceConnected = false;
 
 }

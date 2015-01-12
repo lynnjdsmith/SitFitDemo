@@ -18,7 +18,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRu-cc-174">
                     <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dailyreport" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-wM-yiR">
+                        <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="dailyreport" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-wM-yiR">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="600" id="ejh-Oa-lsv"/>

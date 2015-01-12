@@ -6,9 +6,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BodyViewController" customModule="SitFitDemo" customModuleProvider="target">
             <connections>
-                <outlet property="muscles_middle" destination="rRO-e3-9T6" id="NDL-Ul-8l4"/>
-                <outlet property="muscles_sides" destination="Hds-a1-i6j" id="hwN-uj-Fb2"/>
-                <outlet property="muscles_thigh" destination="Lx1-GJ-ohM" id="5aJ-gc-ap6"/>
+                <outlet property="body" destination="J41-6U-R2J" id="oau-N2-beE"/>
+                <outlet property="fbTotalView" destination="1OO-oY-dVW" id="LFt-5S-Odg"/>
+                <outlet property="muscles_abs" destination="Esg-MO-VEG" id="nZT-GT-AJf"/>
+                <outlet property="muscles_thigh" destination="skk-VY-Olt" id="Mhs-DH-wUG"/>
+                <outlet property="on_1" destination="vmS-Wk-Htv" id="5XE-jT-TPs"/>
+                <outlet property="on_2" destination="VS6-BZ-tlp" id="u2i-R3-NtM"/>
+                <outlet property="score1back" destination="HC3-3s-5qd" id="A7x-kU-kcd"/>
+                <outlet property="score2back" destination="wO0-DA-fqp" id="t2d-xC-icz"/>
+                <outlet property="ssTotalView" destination="zZW-AP-Uvh" id="EMo-Yh-M9y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,24 +23,61 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="person_full_transp2" translatesAutoresizingMaskIntoConstraints="NO" id="gtq-IR-3lm">
-                    <rect key="frame" x="55" y="0.0" width="200" height="378"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="guy_transp" translatesAutoresizingMaskIntoConstraints="NO" id="J41-6U-R2J">
+                    <rect key="frame" x="15" y="20" width="180" height="375"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="rey-AM-3JO"/>
-                        <constraint firstAttribute="height" constant="378" id="rz0-LF-BG5"/>
+                        <constraint firstAttribute="height" constant="375" id="dHf-4q-eDv"/>
+                        <constraint firstAttribute="width" constant="180" id="miB-MA-1xg"/>
                     </constraints>
                 </imageView>
-                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="muscles_middle" translatesAutoresizingMaskIntoConstraints="NO" id="rRO-e3-9T6">
-                    <rect key="frame" x="139" y="138" width="29" height="72"/>
+                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="legs_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="skk-VY-Olt">
+                    <rect key="frame" x="15" y="20" width="180" height="375"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="375" id="0I7-4q-BJx"/>
+                        <constraint firstAttribute="width" constant="180" id="H20-0c-Jx8"/>
+                    </constraints>
                 </imageView>
-                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="muscles_sides" translatesAutoresizingMaskIntoConstraints="NO" id="Hds-a1-i6j">
-                    <rect key="frame" x="120" y="104" width="67" height="88"/>
+                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="abs_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="Esg-MO-VEG">
+                    <rect key="frame" x="15" y="20" width="180" height="375"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="375" id="Jsc-C9-sxv"/>
+                        <constraint firstAttribute="width" constant="180" id="Zxe-7f-fER"/>
+                    </constraints>
                 </imageView>
-                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="muscles_thigh" translatesAutoresizingMaskIntoConstraints="NO" id="Lx1-GJ-ohM">
-                    <rect key="frame" x="121" y="183" width="66" height="93"/>
-                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HC3-3s-5qd">
+                    <rect key="frame" x="210" y="20" width="90" height="60"/>
+                    <color key="backgroundColor" red="0.61477494245543152" green="1" blue="0.99800301765752186" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wO0-DA-fqp">
+                    <rect key="frame" x="210" y="95" width="90" height="60"/>
+                    <color key="backgroundColor" red="0.61477494249999998" green="1" blue="0.99800301769999999" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forward - Back" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ba3-ZA-Ia6">
+                    <rect key="frame" x="210" y="25" width="90" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OO-oY-dVW">
+                    <rect key="frame" x="210" y="39" width="90" height="40"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Side - Side" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57U-DU-amo">
+                    <rect key="frame" x="210" y="100" width="90" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZW-AP-Uvh">
+                    <rect key="frame" x="210" y="114" width="90" height="40"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ6-yH-K2c">
-                    <rect key="frame" x="21" y="381" width="90" height="30"/>
+                    <rect key="frame" x="210" y="163" width="90" height="30"/>
                     <color key="backgroundColor" red="0.34757937420255364" green="0.47390843374431191" blue="0.86264054232804233" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                     <state key="normal" title="Forward / Back">
@@ -45,43 +88,39 @@
                         <action selector="Btn1:" destination="-1" eventType="touchUpInside" id="Puv-LK-oyy"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC9-sG-Zaw">
-                    <rect key="frame" x="207" y="381" width="90" height="30"/>
-                    <color key="backgroundColor" red="0.34757937420255364" green="0.47390843374431191" blue="0.86264054232804233" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                    <state key="normal" title="Side to Side">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="Btn2:" destination="-1" eventType="touchUpInside" id="JfQ-V5-a1s"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-bj-NR2">
-                    <rect key="frame" x="114" y="381" width="90" height="30"/>
-                    <color key="backgroundColor" red="0.34757937420255364" green="0.47390843374431191" blue="0.86264054232804233" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                    <state key="normal" title="Circles">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="Btn3:" destination="-1" eventType="touchUpInside" id="d9W-N9-Tot"/>
-                    </connections>
-                </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="gradient_on_30" translatesAutoresizingMaskIntoConstraints="NO" id="vmS-Wk-Htv" userLabel="on_1">
+                    <rect key="frame" x="224" y="275" width="30" height="120"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="gradient_on_30" translatesAutoresizingMaskIntoConstraints="NO" id="VS6-BZ-tlp" userLabel="on_2">
+                    <rect key="frame" x="270" y="275" width="30" height="120"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.97620768082121001" green="0.99773552908954" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="gtq-IR-3lm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1oq-zz-ke1"/>
-                <constraint firstItem="gtq-IR-3lm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="tvx-9T-bGZ"/>
+                <constraint firstItem="skk-VY-Olt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="1rA-Sl-6bE"/>
+                <constraint firstAttribute="centerX" secondItem="J41-6U-R2J" secondAttribute="centerX" id="Ah7-pT-g8v"/>
+                <constraint firstItem="skk-VY-Olt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Hji-HW-tEM"/>
+                <constraint firstItem="J41-6U-R2J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Mtg-yT-nzZ"/>
+                <constraint firstAttribute="centerX" secondItem="Esg-MO-VEG" secondAttribute="centerX" id="QHn-9r-Ovo"/>
+                <constraint firstItem="J41-6U-R2J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="WrA-SI-QKi"/>
+                <constraint firstAttribute="centerX" secondItem="skk-VY-Olt" secondAttribute="centerX" id="c7e-r0-9tS"/>
+                <constraint firstItem="Esg-MO-VEG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="oAo-a4-ASU"/>
+                <constraint firstItem="Esg-MO-VEG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="urn-wC-fKi"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="QHn-9r-Ovo"/>
+                    <exclude reference="Ah7-pT-g8v"/>
+                    <exclude reference="c7e-r0-9tS"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="32" y="-307"/>
         </view>
     </objects>
     <resources>
-        <image name="muscles_middle" width="76" height="220"/>
-        <image name="muscles_sides" width="201" height="260"/>
-        <image name="muscles_thigh" width="195" height="276"/>
-        <image name="person_full_transp2" width="600" height="1144"/>
+        <image name="abs_yellow" width="480" height="1000"/>
+        <image name="gradient_on_30" width="30" height="120"/>
+        <image name="guy_transp" width="480" height="1000"/>
+        <image name="legs_yellow" width="480" height="1000"/>
     </resources>
 </document>

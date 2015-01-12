@@ -30,7 +30,7 @@ class BaseViewController: UIViewController, oneDelegate { //customClassDelegate 
 
   
   required init(coder aDecoder: NSCoder) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let storyboard = UIStoryboard(name: "BaseView", bundle: nil)
     
     // Main Activity
     bodyVC = BodyViewController(nibName: "BodyViewController", bundle: nil)
