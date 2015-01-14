@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeaderboardViewController" customModule="SitFitDemo" customModuleProvider="target">
             <connections>
+                <outlet property="scrollView" destination="8dW-cs-P68" id="jMi-O7-00J"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,9 +15,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="leaderboard" translatesAutoresizingMaskIntoConstraints="NO" id="URv-td-PFZ">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
-                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dW-cs-P68">
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
+                    <subviews>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="leaderboard" translatesAutoresizingMaskIntoConstraints="NO" id="URv-td-PFZ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
+                        </imageView>
+                    </subviews>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
         </view>

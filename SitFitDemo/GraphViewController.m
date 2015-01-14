@@ -118,9 +118,6 @@
 
 -(void)nodeDeviceDidUpdateAccReading:(VTNodeDevice *)device withReading:(VTSensorReading *)reading {
   static float accScaleMax = 16.0f;
-  //self.accXLabel.text = [NSString stringWithFormat:@"%.2f g", reading.x];
-  //self.accYLabel.text = [NSString stringWithFormat:@"%.2f g", reading.y];
-  //NSLog(@"Sending!");
 
   NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reading forKey:@"reading"];
   
