@@ -14,12 +14,10 @@ class BodyViewController: UIViewController {
   @IBOutlet weak var body             :UIImageView!
   @IBOutlet weak var muscles_abs      :UIImageView!
   @IBOutlet weak var muscles_thigh    :UIImageView!
-  
   @IBOutlet weak var score1back: UIView!
   @IBOutlet weak var score2back: UIView!
   @IBOutlet weak var fbTotalView: UILabel!
   @IBOutlet weak var ssTotalView: UILabel!
-  
   @IBOutlet weak var on_1: UIImageView!
   @IBOutlet weak var on_2: UIImageView!
   
@@ -28,7 +26,7 @@ class BodyViewController: UIViewController {
   var meter2_overlay :UIImageView = UIImageView()
 
   // set thresholds, pause info and counter for when evaluating
-  var threshold :Int = 240
+  var threshold :Int = 350
   var thresholdSensitivity = 8
   var pauseThreshold :NSTimeInterval = 2
   var paused = false
@@ -82,54 +80,46 @@ class BodyViewController: UIViewController {
   
   func notifiedOfMovement(notification: NSNotification){
 
+    // put values into sensor reading model
     if let id:VTSensorReading = notification.userInfo?["reading"] as? VTSensorReading {
-      println("x: \(Int(id.x * 1000.0))    y: \(Int(id.y * 1000.0))")
+      //println("x: \(Int(id.x * 1000.0))    y: \(Int(id.y * 1000.0))")
       SR.xread = Int(id.x * 1000.0)
       SR.yread = Int(id.y * 1000.0)
+      setMeter(meter2_overlay, amt: 0)  // turn on meters a little bit
+      setMeter(meter1_overlay, amt: 0)
     }
     
-    // gap size biggest to smallest of the past 5 readings
+    // find gap size (biggest to smallest) of the past 5 readings
     var difX :Int = SR.gapDifX(5)
     var difY :Int = SR.gapDifY(5)
-    //println("difX: \(difX)")
     
+    //println("difX: \(difX)")
     // do Meter things
     switch difX {
-    case 0 ... 25:
-      var img :UIImageView = meter1_overlay
-      if (meter1Reading != 0) {
-        var theTimer = NSTimer.scheduledTimerWithTimeInterval(0.3, target:self, selector:"meter1Off:", userInfo:img, repeats: false)
-      }
-    case 26 ... 50:
-      setMeter(meter1_overlay, amt: 3)
-    case 51 ... 100:
-      setMeter(meter1_overlay, amt: 6)
-    case 101 ... 200:
-      setMeter(meter1_overlay, amt: 9)
-    case 201 ... 100000:
+    case threshold  ... (Int(CGFloat(threshold) * 1.5)):
+      if (meter1Reading < 3) { setMeter(meter1_overlay, amt: 3) }
+    case (Int(CGFloat(threshold) * 1.5)) ... (Int(CGFloat(threshold) * 2)):
+      if (meter1Reading < 6) { setMeter(meter1_overlay, amt: 6) }
+    case (Int(CGFloat(threshold) * 2)) ... (Int(CGFloat(threshold) * 2.5)):
+      if (meter1Reading < 9) { setMeter(meter1_overlay, amt: 9) }
+    case (Int(CGFloat(threshold) * 2.5)) ... (Int(CGFloat(threshold) * 3)):
       setMeter(meter1_overlay, amt: 10)
     default:
       break
     }
-    
-    
-    /* if (difX > 50) {
-    //showMovementFB()
-    //setMeter(off_1, amt: 5)
-    //showMovementFB()
-    }
-    
-    if (difX > 50) {
-    //showMovementFB()
-    //setMeter(off_1, amt: 5)
-    //showMovementFB()
-    }
-    
-    if (difY > 50) {
-    setMeter(meter2_overlay, amt: 8)
-    showMovementSS()
+
+    /* switch difY {
+    case threshold  ... (Int(CGFloat(threshold) * 1.5)):
+      if (meter1Reading < 3) { setMeter(meter2_overlay, amt: 3) }
+    case (Int(CGFloat(threshold) * 1.5)) ... (Int(CGFloat(threshold) * 2)):
+      if (meter1Reading < 6) { setMeter(meter2_overlay, amt: 6) }
+    case (Int(CGFloat(threshold) * 2)) ... (Int(CGFloat(threshold) * 2.5)):
+      if (meter1Reading < 9) { setMeter(meter2_overlay, amt: 9) }
+    case (Int(CGFloat(threshold) * 2.5)) ... (Int(CGFloat(threshold) * 3)):
+      setMeter(meter1_overlay, amt: 10)
+    default:
+      break
     } */
-    
     
     // if paused, check if we need to unpause
     if (paused) {
@@ -140,7 +130,7 @@ class BodyViewController: UIViewController {
       }
     } else {
       
-      // over threshold? Start swipe evaluation
+      // was the reading over threshold? Start swipe evaluation
       if (difX > threshold || difY > threshold) {
         evaluatingGroupCount = 1
       }
@@ -220,6 +210,29 @@ class BodyViewController: UIViewController {
     muscles_thigh.alpha = 0
   }
   
+  // amt = 1 to 10
+  func setMeter(sender: UIImageView, amt: CGFloat) {
+    meter1Reading = Int(amt)
+    //println("meterset: \(amt)")
+    var height :CGFloat = meterHeight - (meterHeight * CGFloat(amt * 0.1))
+    if (height > (meterHeight - 10)) { height = meterHeight - 10 } // want to leave it on a bit
+    var curFrame :CGRect = sender.frame
+    //println("Set Meter: amt: \(amt)  height: \(height)")
+    curFrame = CGRect(x: curFrame.origin.x, y: curFrame.origin.y, width: curFrame.width, height: height)
+    sender.frame = curFrame
+    if (meter1Reading > 0) {
+      meter1Reading = meter1Reading - 1
+      //println("meter1Down: \(meter1Reading)")
+      var theTimer = NSTimer.scheduledTimerWithTimeInterval(0.6, target:self, selector:"meter1Down:", userInfo:sender, repeats: false)
+    }
+  }
+  
+  func meter1Down(val :NSTimer?) {
+      var img :UIImageView = val?.userInfo as UIImageView
+      setMeter(img, amt: CGFloat(meter1Reading))
+  }
+  
+  
   /*func animateImageViewOn(theImage: UIImageView) {
      CATransaction.begin()
     CATransaction.setAnimationDuration(0.2)
@@ -248,53 +261,21 @@ class BodyViewController: UIViewController {
     theImage.hidden = true
   } */
   
+
   
-  /* @IBAction func Btn1(sender: AnyObject) {
-    //showMovementFB()
-    //setMeter(off_1, amt: 5)
-  } */
-  
-  func setMeter(sender: UIImageView, amt: CGFloat) {
-    meter1Reading = Int(amt)
-    println("meter1set: \(amt)")
-    var height :CGFloat = meterHeight * CGFloat(amt * 0.1)
-    var curFrame :CGRect = sender.frame
-    //println("Set Meter: amt: \(amt)  height: \(height)")
-    curFrame = CGRect(x: curFrame.origin.x, y: curFrame.origin.y, width: curFrame.width, height: height)
-    sender.frame = curFrame
-    //var theTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target:self, selector:"meterOff:", userInfo:sender, repeats: true)
-  }
-  
-  func meter1Off(val :NSTimer?) {
+ /*  func meter1Off(val :NSTimer?) {
     meter1Reading = 0
     println("meter1set: 0 - FROM OFF")
     var img :UIImageView = val?.userInfo as UIImageView
     var curFrame :CGRect = img.frame
     curFrame = CGRect(x: curFrame.origin.x, y: curFrame.origin.y, width: curFrame.width, height:120)
     img.frame = curFrame
-  }
+  }*/
+
+
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
   
 }
-
-
-// PREVIOUS
-/*
-// get total of previous 5, put in groupTotalsFB
-for i in 2 ... 6 {
-var i2 = i - 1
-
-var x1 = xreadings[xreadings.endIndex - i]
-var x2 = xreadings[xreadings.endIndex - i2]
-var difX = abs(x1 - x2)
-groupXtotal += difX
-
-var y1 = yreadings[yreadings.endIndex - i]
-var y2 = yreadings[yreadings.endIndex - i2]
-var difY = abs(y1 - y2)
-groupYtotal += difY
-}
-*/
