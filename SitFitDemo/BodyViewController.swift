@@ -5,7 +5,9 @@
 //  Created by Lynn Smith on 12/12/14.
 //  Copyright (c) 2014 Lynn Smith. All rights reserved.
 //
-// improvement todo - an area calculation rather than detecting peaks.
+// improvement todos - 
+// an area calculation rather than detecting peaks.
+// for y, do we need to add the z adjustment to give that a boost? not sure why y isn't reading as fully.
 
 import UIKit
 
