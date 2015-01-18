@@ -226,8 +226,8 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	CGContextSetStrokeColorWithColor(context, graphYColor());
 	CGContextStrokeLineSegments(context, lines, 64);
 
-	// Z
-	for (i = 0; i < 32; ++i)
+	// Z                                                           // COMMENTED OUT?     -- *****   Show Z line here   *****
+	 for (i = 0; i < 32; ++i)
 	{
 		lines[i*2].y = -zhistory[i] * 16.0;
 		lines[i*2+1].y = -zhistory[i+1] * 16.0;

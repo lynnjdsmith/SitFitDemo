@@ -14,6 +14,10 @@ class SensorReadings {
   // keeps last 20 values
   var xreadings: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
   var yreadings: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  var zreadings: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  var zAvg :Int = 0
+  var numOfReadings :Int = 0
+  var zTotal :Int = 0
   
   var xread :Int {
     get {
@@ -34,6 +38,24 @@ class SensorReadings {
       yreadings.append(newY)
     }
   }
+
+  var zread :Int {
+    get {
+      return 8 //never used
+    }
+    set(newZ) {
+      //zreadings.removeAtIndex(0)
+      //zreadings.append(newY)
+      numOfReadings++
+      
+      // rolling average until 25. then, that's what's set.
+      if (numOfReadings <= 25) {
+          zTotal += newZ
+          zAvg = zTotal / 25
+      }
+    }
+  }
+  
   
   // This is the gap between the highest and lowest of the last 'pastnum' readings - X
   func gapDifX(pastnum :Int) -> Int  {
@@ -62,6 +84,5 @@ class SensorReadings {
     }
     return abs(biggestY - smallestY)
   }
-  
   
 }
