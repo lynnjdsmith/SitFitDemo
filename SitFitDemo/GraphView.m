@@ -227,13 +227,13 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	CGContextStrokeLineSegments(context, lines, 64);
 
 	// Z                                                           // COMMENTED OUT?     -- *****   Show Z line here   *****
-	 for (i = 0; i < 32; ++i)
+	/*  for (i = 0; i < 32; ++i)
 	{
 		lines[i*2].y = -zhistory[i] * 16.0;
 		lines[i*2+1].y = -zhistory[i+1] * 16.0;
 	}
 	CGContextSetStrokeColorWithColor(context, graphZColor());
-	CGContextStrokeLineSegments(context, lines, 64);
+	CGContextStrokeLineSegments(context, lines, 64); */
 }
 
 - (id)actionForLayer:(CALayer *)layer forKey :(NSString *)key
