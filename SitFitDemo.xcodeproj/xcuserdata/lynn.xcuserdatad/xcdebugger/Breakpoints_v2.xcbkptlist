@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SitFitDemo/BodyViewController.swift"
-            timestampString = "443301747.105588"
+            timestampString = "443413117.742723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "notifiedOfMovement(_:)"
             landmarkType = "5">
          </BreakpointContent>
