@@ -7,7 +7,7 @@
 #define kLocalizedPause		NSLocalizedString(@"Pause","pause taking samples")
 #define kLocalizedResume	NSLocalizedString(@"Resume","resume taking samples")
 
-@interface GraphViewController()<NodeDeviceDelegate>
+@interface GraphViewController() <NodeDeviceDelegate>
 {
 	AccelerometerFilter *filter;
 	BOOL isPaused, useAdaptive;

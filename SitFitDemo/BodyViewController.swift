@@ -17,13 +17,15 @@ class BodyViewController: UIViewController {
   @IBOutlet weak var body             :UIImageView!
   @IBOutlet weak var muscles_abs      :UIImageView!
   @IBOutlet weak var muscles_thigh    :UIImageView!
-  @IBOutlet weak var score1back: UIView!
+  @IBOutlet weak var score1back       :UIView!
   @IBOutlet weak var score2back: UIView!
   @IBOutlet weak var fbTotalView: UILabel!
   @IBOutlet weak var ssTotalView: UILabel!
   @IBOutlet weak var on_1: UIImageView!
   @IBOutlet weak var on_2: UIImageView!
-
+  @IBOutlet weak var slider1: UISlider!
+  @IBOutlet weak var slider2: UISlider!
+  
   // ** thresholds **
   
   // when we see a big movement by looking back n readings for big gap, start evaluaing to detect swipe type
@@ -88,6 +90,11 @@ class BodyViewController: UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifiedOfMovement:", name: GraphViewMovementNotification, object: nil)
   }
 
+  
+  @IBAction func moveSlider1(sender: AnyObject) {
+    println("here! \(slider1.value)")
+  }
+  
   
   // MARK: - Sensor reading processing
   
