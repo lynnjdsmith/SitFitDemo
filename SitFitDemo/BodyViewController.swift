@@ -91,9 +91,10 @@ class BodyViewController: UIViewController {
   }
 
   
+ /* LS - this breaks things. Removing for now.
   @IBAction func moveSlider1(sender: AnyObject) {
     println("here! \(slider1.value)")
-  }
+  } */
   
   
   // MARK: - Sensor reading processing
