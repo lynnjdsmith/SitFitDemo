@@ -94,7 +94,7 @@
 					<object class="IBUILabel" id="634276563">
 						<reference key="NSNextResponder" ref="245598487"/>
 						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{39, 31}, {141, 21}}</string>
+						<string key="NSFrame">{{36, 30}, {119, 21}}</string>
 						<reference key="NSSuperview" ref="245598487"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="927728037"/>
@@ -102,7 +102,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Forward and Back</string>
+						<string key="IBUIText">Forward - Back</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC44NjI0OTU3NTQxIDAuMjgzMTEwNTAwNSAwLjU4NjIxMDMyNjIAA</bytes>
@@ -121,17 +121,17 @@
 						</object>
 						<bool key="useAutomaticPreferredMaxLayoutWidth">YES</bool>
 					</object>
-					<object class="IBUILabel" id="893429343">
+					<object class="IBUILabel" id="371740541">
 						<reference key="NSNextResponder" ref="245598487"/>
 						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{206, 31}, {94, 21}}</string>
+						<string key="NSFrame">{{186, 30}, {85, 21}}</string>
 						<reference key="NSSuperview" ref="245598487"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Side to Side</string>
+						<string key="IBUIText">Side - Side</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4wOTM0NDU5NDk2NCAwLjcyMDQwNTkxMDMgMC4xMTIxNTM3MjM4AA</bytes>
@@ -347,8 +347,8 @@
 							<reference ref="37065694"/>
 							<reference ref="927728037"/>
 							<reference ref="97412129"/>
+							<reference ref="371740541"/>
 							<reference ref="634276563"/>
-							<reference ref="893429343"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -409,7 +409,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">103</int>
-						<reference key="object" ref="893429343"/>
+						<reference key="object" ref="371740541"/>
 						<reference key="parent" ref="245598487"/>
 					</object>
 				</array>
