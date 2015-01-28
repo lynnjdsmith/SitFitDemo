@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">768</int>
-		<string key="IBDocument.SystemVersion">14B25</string>
+		<string key="IBDocument.SystemVersion">13F34</string>
 		<string key="IBDocument.InterfaceBuilderVersion">6254</string>
-		<string key="IBDocument.AppKitVersion">1343.16</string>
-		<string key="IBDocument.HIToolboxVersion">755.00</string>
+		<string key="IBDocument.AppKitVersion">1265.21</string>
+		<string key="IBDocument.HIToolboxVersion">698.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">6247</string>
@@ -94,7 +94,7 @@
 					<object class="IBUILabel" id="634276563">
 						<reference key="NSNextResponder" ref="245598487"/>
 						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{20, 35}, {280, 21}}</string>
+						<string key="NSFrame">{{39, 31}, {141, 21}}</string>
 						<reference key="NSSuperview" ref="245598487"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="927728037"/>
@@ -102,10 +102,10 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Motion Stream</string>
-						<object class="NSColor" key="IBUITextColor" id="258283627">
+						<string key="IBUIText">Forward and Back</string>
+						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwIDAAA</bytes>
+							<bytes key="NSRGB">MC44NjI0OTU3NTQxIDAuMjgzMTEwNTAwNSAwLjU4NjIxMDMyNjIAA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -121,6 +121,28 @@
 						</object>
 						<bool key="useAutomaticPreferredMaxLayoutWidth">YES</bool>
 					</object>
+					<object class="IBUILabel" id="893429343">
+						<reference key="NSNextResponder" ref="245598487"/>
+						<int key="NSvFlags">288</int>
+						<string key="NSFrame">{{206, 31}, {94, 21}}</string>
+						<reference key="NSSuperview" ref="245598487"/>
+						<reference key="NSWindow"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<string key="IBUIText">Side to Side</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4wOTM0NDU5NDk2NCAwLjcyMDQwNTkxMDMgMC4xMTIxNTM3MjM4AA</bytes>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">10</float>
+						<reference key="IBUIFontDescription" ref="245294810"/>
+						<reference key="IBUIFont" ref="777467766"/>
+						<bool key="useAutomaticPreferredMaxLayoutWidth">YES</bool>
+					</object>
 					<object class="IBUILabel" id="1052054313">
 						<reference key="NSNextResponder" ref="245598487"/>
 						<int key="NSvFlags">-2147483360</int>
@@ -133,7 +155,10 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Lowpass Filter</string>
-						<reference key="IBUITextColor" ref="258283627"/>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwIDAAA</bytes>
+						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
@@ -323,6 +348,7 @@
 							<reference ref="927728037"/>
 							<reference ref="97412129"/>
 							<reference ref="634276563"/>
+							<reference ref="893429343"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -381,6 +407,11 @@
 						<reference key="object" ref="665808368"/>
 						<reference key="parent" ref="97412129"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">103</int>
+						<reference key="object" ref="893429343"/>
+						<reference key="parent" ref="245598487"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -388,6 +419,8 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="103.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<reference key="14.IBNSViewMetadataGestureRecognizers" ref="0"/>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -406,7 +439,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">102</int>
+			<int key="maxID">103</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

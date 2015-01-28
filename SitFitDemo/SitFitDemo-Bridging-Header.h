@@ -6,8 +6,9 @@
 #import "GraphViewController.h"
 #import "AccelerometerFilter.h"
 #import "GraphView.h"
-
 #import "VTMotionViewController.h"
+
+#import "SharedReading.h"
 
 //#import "VTNodeConnectionManagerViewController.h"
 //#import <Instabug/Instabug.h>

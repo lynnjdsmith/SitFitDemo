@@ -44,6 +44,7 @@
 		BACFFE981A3923EB0081FCB6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACFFE961A3923EB0081FCB6 /* LaunchScreen.xib */; };
 		BACFFEA41A3923EB0081FCB6 /* SitFitDemoTests in Sources */ = {isa = PBXBuildFile; fileRef = BACFFEA31A3923EB0081FCB6 /* SitFitDemoTests */; };
 		BAEC8D2E1A3A66330092A1B8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEC8D2D1A3A66330092A1B8 /* Default-568h@2x.png */; };
+		BCAD8C801A75F8E3002CA313 /* SharedReading.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAD8C7F1A75F8E3002CA313 /* SharedReading.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		BACFFEA21A3923EB0081FCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = SitFitDemo/Info.plist; sourceTree = "<group>"; };
 		BACFFEA31A3923EB0081FCB6 /* SitFitDemoTests */ = {isa = PBXFileReference; lastKnownFileType = text; path = SitFitDemoTests; sourceTree = "<group>"; };
 		BAEC8D2D1A3A66330092A1B8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BCAD8C7F1A75F8E3002CA313 /* SharedReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedReading.m; sourceTree = "<group>"; };
+		BCAD8C811A75FA38002CA313 /* SharedReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedReading.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +217,8 @@
 				BACFFE8F1A3923EB0081FCB6 /* BaseViewController.swift */,
 				BA293E711A3B418B002A0AE2 /* BodyViewController.xib */,
 				BA293E701A3B418B002A0AE2 /* BodyViewController.swift */,
+				BCAD8C7F1A75F8E3002CA313 /* SharedReading.m */,
+				BCAD8C811A75FA38002CA313 /* SharedReading.h */,
 				BABE1B191A661F3E0073C2B8 /* SensorReadings.swift */,
 				BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */,
 				BA293E6C1A3B240A002A0AE2 /* DailyReportViewController.swift */,
@@ -380,6 +385,7 @@
 				BA6EE67D1A5B998F00A7A72F /* Extensions.swift in Sources */,
 				BA293E721A3B418B002A0AE2 /* BodyViewController.swift in Sources */,
 				BA610CE71A563F00009F675F /* GraphView.m in Sources */,
+				BCAD8C801A75F8E3002CA313 /* SharedReading.m in Sources */,
 				BA610CEC1A563F3F009F675F /* GraphViewController.m in Sources */,
 				BA293E641A3B1A3E002A0AE2 /* LeaderboardViewController.swift in Sources */,
 			);
