@@ -92,7 +92,7 @@
   [[VTNodeManager getInstance].selectedNodeDevice setStreamModeAcc:YES Gyro:YES Mag:YES withTimestampingEnabled:YES];
     
     
-  [[VTNodeManager getInstance].selectedNodeDevice requestBLEConnectionParamsUpdateWithMinConnInterval: 8 withMaxConnInterval:16 withSlaveLatency:0 withSupervisionTimeout:400];  //I think I'm requesting the fastest possible BLE connection settings here, as described in VTNodeDevice.h    Maybe not necessary... may not help with the lag
+ // [[VTNodeManager getInstance].selectedNodeDevice requestBLEConnectionParamsUpdateWithMinConnInterval: 8 withMaxConnInterval:16 withSlaveLatency:0 withSupervisionTimeout:400];  //I think I'm requesting the fastest possible BLE connection settings here, as described in VTNodeDevice.h    Maybe not necessary... may not help with the lag
   
 }
 

@@ -14,7 +14,6 @@
 		BA293E6E1A3B240A002A0AE2 /* DailyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA293E6C1A3B240A002A0AE2 /* DailyReportViewController.swift */; };
 		BA293E6F1A3B240A002A0AE2 /* DailyReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */; };
 		BA293E721A3B418B002A0AE2 /* BodyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA293E701A3B418B002A0AE2 /* BodyViewController.swift */; };
-		BA293E731A3B418B002A0AE2 /* BodyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA293E711A3B418B002A0AE2 /* BodyViewController.xib */; };
 		BA610CE41A563EED009F675F /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA610CE31A563EED009F675F /* GraphViewController.xib */; };
 		BA610CE71A563F00009F675F /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA610CE61A563F00009F675F /* GraphView.m */; };
 		BA610CEC1A563F3F009F675F /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA610CE91A563F3F009F675F /* GraphViewController.m */; };
@@ -44,6 +43,7 @@
 		BACFFE981A3923EB0081FCB6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACFFE961A3923EB0081FCB6 /* LaunchScreen.xib */; };
 		BACFFEA41A3923EB0081FCB6 /* SitFitDemoTests in Sources */ = {isa = PBXBuildFile; fileRef = BACFFEA31A3923EB0081FCB6 /* SitFitDemoTests */; };
 		BAEC8D2E1A3A66330092A1B8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEC8D2D1A3A66330092A1B8 /* Default-568h@2x.png */; };
+		BCA3C0B31A7C786500B3FA24 /* BodyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA3C0B21A7C786500B3FA24 /* BodyViewController.xib */; };
 		BCAD8C801A75F8E3002CA313 /* SharedReading.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAD8C7F1A75F8E3002CA313 /* SharedReading.m */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +65,6 @@
 		BA293E6C1A3B240A002A0AE2 /* DailyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyReportViewController.swift; path = ../DailyReportViewController.swift; sourceTree = "<group>"; };
 		BA293E6D1A3B240A002A0AE2 /* DailyReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DailyReportViewController.xib; path = ../DailyReportViewController.xib; sourceTree = "<group>"; };
 		BA293E701A3B418B002A0AE2 /* BodyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyViewController.swift; sourceTree = "<group>"; };
-		BA293E711A3B418B002A0AE2 /* BodyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BodyViewController.xib; sourceTree = "<group>"; };
 		BA610CE31A563EED009F675F /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphViewController.xib; sourceTree = "<group>"; };
 		BA610CE51A563F00009F675F /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		BA610CE61A563F00009F675F /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		BACFFEA21A3923EB0081FCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = SitFitDemo/Info.plist; sourceTree = "<group>"; };
 		BACFFEA31A3923EB0081FCB6 /* SitFitDemoTests */ = {isa = PBXFileReference; lastKnownFileType = text; path = SitFitDemoTests; sourceTree = "<group>"; };
 		BAEC8D2D1A3A66330092A1B8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BCA3C0B21A7C786500B3FA24 /* BodyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BodyViewController.xib; sourceTree = "<group>"; };
 		BCAD8C7F1A75F8E3002CA313 /* SharedReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedReading.m; sourceTree = "<group>"; };
 		BCAD8C811A75FA38002CA313 /* SharedReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedReading.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,8 +215,8 @@
 				BACFFE8D1A3923EB0081FCB6 /* AppDelegate.swift */,
 				BACFFE911A3923EB0081FCB6 /* BaseView.storyboard */,
 				BACFFE8F1A3923EB0081FCB6 /* BaseViewController.swift */,
-				BA293E711A3B418B002A0AE2 /* BodyViewController.xib */,
 				BA293E701A3B418B002A0AE2 /* BodyViewController.swift */,
+				BCA3C0B21A7C786500B3FA24 /* BodyViewController.xib */,
 				BCAD8C7F1A75F8E3002CA313 /* SharedReading.m */,
 				BCAD8C811A75FA38002CA313 /* SharedReading.h */,
 				BABE1B191A661F3E0073C2B8 /* SensorReadings.swift */,
@@ -344,12 +344,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA293E731A3B418B002A0AE2 /* BodyViewController.xib in Resources */,
 				BA610CEF1A56427F009F675F /* Localizable.strings in Resources */,
 				BACFFE931A3923EB0081FCB6 /* BaseView.storyboard in Resources */,
 				BA293E691A3B1BB3002A0AE2 /* SettingsViewController.xib in Resources */,
 				BACFFE981A3923EB0081FCB6 /* LaunchScreen.xib in Resources */,
 				BA293E651A3B1A3E002A0AE2 /* LeaderboardViewController.xib in Resources */,
+				BCA3C0B31A7C786500B3FA24 /* BodyViewController.xib in Resources */,
 				BACFFE951A3923EB0081FCB6 /* Images.xcassets in Resources */,
 				BA610CE41A563EED009F675F /* GraphViewController.xib in Resources */,
 				BA293E6F1A3B240A002A0AE2 /* DailyReportViewController.xib in Resources */,

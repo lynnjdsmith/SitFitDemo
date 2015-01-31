@@ -11,6 +11,7 @@ import Foundation
 
 let nAvg: Int = 100  //sets the number of readings kept in the running average -CJW
 let nPeakPersist: Int = 350  //sets the persistence or fade period for peak value detection+display -CJW
+let meterMult: Int = 10 //sets how much longer the meter peak levels will last than the body lighting... helps user adjust sensitivity with slider
 
 
 class SensorReadings {
@@ -31,9 +32,16 @@ class SensorReadings {
     
     var xPeak: CGFloat = 0;
     var yPeak: CGFloat = 0;
+    
+    var xPeakNoFade: CGFloat = 0;  //Ok. These do fade, but not for a while.
+    var yPeakNoFade: CGFloat = 0;
 
     var xPeakPersistCount: Int = nPeakPersist
     var yPeakPersistCount: Int = nPeakPersist
+    
+    var xLongCount: Int = nPeakPersist * meterMult
+    var yLongCount: Int = nPeakPersist * meterMult
+
     
     //update running average and current peak values for x, keep track of peak value persist/fade
     func updateX(xIn: CGFloat) {
@@ -53,8 +61,21 @@ class SensorReadings {
             if (xPeakPersistCount>0) {         //or decrement counter since we don't have a new peak
                 xPeakPersistCount--
                 xPeak = xPeak * (CGFloat(xPeakPersistCount)/CGFloat(nPeakPersist))   //make "peak" value fade as it gets old
+
             }
         }
+        
+        if (abs(xIn) > xPeakNoFade) {
+            xPeakNoFade = xIn
+            xLongCount = nPeakPersist * meterMult
+        }
+        else {
+            if (xLongCount>0) {
+                xLongCount--
+                xPeakNoFade = xPeakNoFade * (CGFloat(xLongCount)/CGFloat(nPeakPersist*meterMult))
+            }
+        }
+
     }
     
     //update running average and current peak values for y, keep track of peak value persist/fade
@@ -70,7 +91,7 @@ class SensorReadings {
         
         
         if (abs(yIn) > yPeak) {
-            yPeak = abs(yIn);
+            yPeak = abs(yIn)
             yPeakPersistCount = nPeakPersist;
         }
         else {
@@ -79,6 +100,18 @@ class SensorReadings {
                 yPeak =  yPeak * (CGFloat(yPeakPersistCount)/CGFloat(nPeakPersist))
             }
         }
+        
+        if (abs(yIn) > yPeakNoFade) {
+            yPeakNoFade = yIn
+            yLongCount = nPeakPersist * meterMult
+        }
+        else {
+            if (yLongCount>0) {
+                yLongCount--
+                yPeakNoFade = yPeakNoFade * (CGFloat(yLongCount)/CGFloat(nPeakPersist*meterMult))
+            }
+        }
+
         
     }
     

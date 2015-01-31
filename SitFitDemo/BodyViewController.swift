@@ -5,22 +5,30 @@
 //  Created by Lynn Smith on 12/12/14.
 //  Copyright (c) 2014 Lynn Smith. All rights reserved.
 //
-// improvement todos - 
-// figure out where the time lag (from movement of the device to movement of graphics) is coming from, and eliminate it. 
-// The Node+ motion app has very little lag, almost can't see it at all.
-// but we have about 0.25 to 0.5 seconds currently, which is super lame. I've eliminate some possible causes; I think it's not
-// because of using the Notification Center, which I bypassed.  Even making BodyViewController and using the protocol method 
-// didUpdateAccReading directly didn't speed things up.  (which I should have guessed, because the lag is there on the 
-// Motion Stream page (GraphViewController)
+//  add new muscle groups and separate abs
+//  possible new color for muscle lighting
+//  investigate lag a little more... might be inherent in BLE, but it seems like the Node+ motion app has very little lag on the "orientation stream" view, although I think it's got the same lag in "raw stream" view.  weird.  I've pretty much ruled out some other possible causes of lag, such as using the notification center.  I wonder if the animation of the Orientation Stream view makes it faster than whatever methods are used to draw the Raw Stream graphs....
+
 
 import UIKit
 
-class BodyViewController: UIViewController, NodeDeviceDelegate {
+class BodyViewController: UIViewController {
  
   // hook up shite to the .xib
   @IBOutlet weak var body             :UIImageView!
   @IBOutlet weak var muscles_abs      :UIImageView!
   @IBOutlet weak var muscles_thigh    :UIImageView!
+    
+    
+    @IBOutlet weak var muscles_abs1      :UIImageView!
+    @IBOutlet weak var muscles_abs2      :UIImageView!
+    @IBOutlet weak var muscles_abs3      :UIImageView!
+    @IBOutlet weak var muscles_abs4      :UIImageView!
+    @IBOutlet weak var muscles_legs_calf_inner      :UIImageView!
+    @IBOutlet weak var muscles_legs_calf_outer      :UIImageView!
+    @IBOutlet weak var muscles_legs_sides      :UIImageView!
+  
+    
   @IBOutlet weak var score1back       :UIView!
   @IBOutlet weak var score2back: UIView!
   @IBOutlet weak var fbTotalView: UILabel!
@@ -38,7 +46,9 @@ class BodyViewController: UIViewController, NodeDeviceDelegate {
   var userScaler: CGFloat = 1
     
   // when we see a big movement by looking back n readings for big gap, start evaluaing to detect swipe type
-  var threshold   :Int = 320       // threshold for how big the size of the movement size must be to trigger a recorded movement
+  var Xthreshold  :Int = 320       // threshold for how big the size of the movement size must be to trigger a recorded movement
+  var Ythreshold  :Int = 220
+    
   var lookThisFarBack = 5        // each single reading that comes in, go back this # of readings and look at biggest / smallest readings
   var evaluationLength = 5       // evaluate for this many subsequent redings
   
@@ -163,8 +173,8 @@ func nodeDeviceDidUpdateAccReading(device: VTNodeDevice, withReading reading:VTS
     lightAbs(SR.xPeak * userScaler, y: SR.yPeak * userScaler)
     lightThighs(SR.xPeak * userScaler, y: SR.yPeak * userScaler)
     
-    setMeter(meter1_overlay, amt: (SR.xRunAvg * 10 * userScaler))
-    setMeter(meter2_overlay, amt: (SR.yRunAvg * 10 * userScaler))
+    setMeter(meter1_overlay, amt: (SR.xPeakNoFade * 4 * userScaler))
+    setMeter(meter2_overlay, amt: (SR.yPeakNoFade * 4 * userScaler))
     
     println("UserScaler \(userScaler)")
     
@@ -174,7 +184,7 @@ func nodeDeviceDidUpdateAccReading(device: VTNodeDevice, withReading reading:VTS
     SR.yread = Int(yin * 1000.0 * userScaler)
     
     var difX :Int = SR.gapDifX(lookThisFarBack)
-    var difY :Int = SR.gapDifY(lookThisFarBack)
+    var difY :Int = SR.gapDifY(lookThisFarBack)  //changed to make side-side shuffles register a bit more easily
     
     if (paused) {
         var nowTime = NSDate()
@@ -185,7 +195,7 @@ func nodeDeviceDidUpdateAccReading(device: VTNodeDevice, withReading reading:VTS
     } else {
         
         // was the reading over threshold? Start swipe evaluation
-        if (difX > threshold || difY > threshold) {
+        if (difX > Xthreshold || difY > Ythreshold) {
             evaluatingCount = 1
         }
         
@@ -243,14 +253,21 @@ func nodeDeviceDidUpdateAccReading(device: VTNodeDevice, withReading reading:VTS
 // MARK: - Body Animation
     
     func lightAbs(x: CGFloat, y: CGFloat) {
-        muscles_abs.alpha =  0.8*x + 0.2*y    //I chose these coefficients by trial and error to try to keep the alpha less
+        muscles_abs1.alpha =  0.7*(1*x + 0.25*y)
+        muscles_abs2.alpha =  0.8*(1*x + 0.25*y)
+        muscles_abs3.alpha =  0.9*(1*x + 0.25*y)
+        muscles_abs4.alpha =  1.0*(1*x + 0.25*y)
+        //I chose these coefficients by trial and error to try to keep the alpha less
         //than 1 most of the time... don't want it to saturate all the time, want the movement's gradation to be apparent
         //with the slider2 the user can change the scaling of x and y from 0 to x2 it's original value, also
     }
     
     
     func lightThighs(x: CGFloat, y: CGFloat) {
-        muscles_thigh.alpha = 0.6*y + 0.4*x   //ditto.
+        muscles_thigh.alpha = 1*y + 0.25*x   //ditto.
+        muscles_legs_calf_inner.alpha = 0.6*(1*y + 0.1*x)
+        muscles_legs_calf_outer.alpha = 0.6*(1*y + 0.1*x)
+        muscles_legs_sides.alpha = 0.6*y
     }
 
     
