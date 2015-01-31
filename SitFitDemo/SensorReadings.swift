@@ -66,7 +66,7 @@ class SensorReadings {
         }
         
         if (abs(xIn) > xPeakNoFade) {
-            xPeakNoFade = xIn
+            xPeakNoFade = abs(xIn)
             xLongCount = nPeakPersist * meterMult
         }
         else {
@@ -102,7 +102,7 @@ class SensorReadings {
         }
         
         if (abs(yIn) > yPeakNoFade) {
-            yPeakNoFade = yIn
+            yPeakNoFade = abs(yIn)
             yLongCount = nPeakPersist * meterMult
         }
         else {
