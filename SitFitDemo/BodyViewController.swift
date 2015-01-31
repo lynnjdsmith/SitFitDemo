@@ -19,16 +19,14 @@ class BodyViewController: UIViewController {
   @IBOutlet weak var muscles_abs      :UIImageView!
   @IBOutlet weak var muscles_thigh    :UIImageView!
     
-    
-    @IBOutlet weak var muscles_abs1      :UIImageView!
-    @IBOutlet weak var muscles_abs2      :UIImageView!
-    @IBOutlet weak var muscles_abs3      :UIImageView!
-    @IBOutlet weak var muscles_abs4      :UIImageView!
-    @IBOutlet weak var muscles_legs_calf_inner      :UIImageView!
-    @IBOutlet weak var muscles_legs_calf_outer      :UIImageView!
-    @IBOutlet weak var muscles_legs_sides      :UIImageView!
+  @IBOutlet weak var muscles_abs1      :UIImageView!
+  @IBOutlet weak var muscles_abs2      :UIImageView!
+  @IBOutlet weak var muscles_abs3      :UIImageView!
+  @IBOutlet weak var muscles_abs4      :UIImageView!
+  @IBOutlet weak var muscles_legs_calf_inner      :UIImageView!
+  @IBOutlet weak var muscles_legs_calf_outer      :UIImageView!
+  @IBOutlet weak var muscles_legs_sides      :UIImageView!
   
-    
   @IBOutlet weak var score1back       :UIView!
   @IBOutlet weak var score2back: UIView!
   @IBOutlet weak var fbTotalView: UILabel!
@@ -46,8 +44,8 @@ class BodyViewController: UIViewController {
   var userScaler: CGFloat = 1
     
   // when we see a big movement by looking back n readings for big gap, start evaluaing to detect swipe type
-  var Xthreshold  :Int = 320       // threshold for how big the size of the movement size must be to trigger a recorded movement
-  var Ythreshold  :Int = 220
+  var Xthreshold  :Int = 320     // threshold for how big the size of the movement size must be to trigger a recorded movement
+  var Ythreshold  :Int = 220     // side to side needed a lower threshold to get good counts
     
   var lookThisFarBack = 5        // each single reading that comes in, go back this # of readings and look at biggest / smallest readings
   var evaluationLength = 5       // evaluate for this many subsequent redings
@@ -108,53 +106,6 @@ class BodyViewController: UIViewController {
     SharedReading.sharedManager()
 }
     
-
-/*  I tried using BodyView as the node delegate to see if it helps eliminate lag... no dice... lag still was there
-    
-func nodeDeviceDidUpdateAccReading(device: VTNodeDevice, withReading reading:VTSensorReading) {
-    
-    SR.updateX(CGFloat(reading.x * userScaler))
-    SR.updateY(CGFloat(reading.y * userScaler))
-    lightAbs(SR.xPeak, y: SR.yPeak)
-    lightThighs(SR.xPeak, y: SR.yPeak)
-    setMeter(meter1_overlay, amt: (SR.xRunAvg*10))
-    setMeter(meter2_overlay, amt: (SR.yRunAvg*10))
-    
-    println("UserScaler \(userScaler)")
-    
-    println("\nAbs alpha: \(muscles_abs.alpha)   Thighs alpha: \(muscles_thigh.alpha)")
-    
-        SR.xread = Int(reading.x * 1000.0)
-        SR.yread = Int(reading.y * 1000.0)
-        SR.zread = Int(reading.z * 1000.0)
-    
-        var difX :Int = SR.gapDifX(lookThisFarBack)
-        var difY :Int = SR.gapDifY(lookThisFarBack)
-        
-        if (paused) {
-            var nowTime = NSDate()
-            let timeDif :NSTimeInterval = nowTime.timeIntervalSinceDate(regTimeStamp)
-            if (timeDif > pauseThreshold) {
-                paused = false
-            }
-        } else {
-            
-            // was the reading over threshold? Start swipe evaluation
-            if (difX > threshold || difY > threshold) {
-                evaluatingCount = 1
-            }
-            
-            // n readings later, trigger evalForSwipe() to mark a FB (x type) or SS (y type) swipe
-            if (evaluatingCount != 0) {
-                evaluatingCount++
-                if (evaluatingCount > evaluationLength) { evalForSwipe() }
-            }
-            
-        }
-        
-    }
- */
-    
     
 // MARK: - Sensor reading processing
   
@@ -180,11 +131,11 @@ func nodeDeviceDidUpdateAccReading(device: VTNodeDevice, withReading reading:VTS
     
     println("\nAbs alpha: \(muscles_abs.alpha)   Thighs alpha: \(muscles_thigh.alpha)")
     
-    SR.xread = Int(xin * 1000.0 * userScaler)  //this might have to be adjusted a bit -CJW
+    SR.xread = Int(xin * 1000.0 * userScaler)
     SR.yread = Int(yin * 1000.0 * userScaler)
     
     var difX :Int = SR.gapDifX(lookThisFarBack)
-    var difY :Int = SR.gapDifY(lookThisFarBack)  //changed to make side-side shuffles register a bit more easily
+    var difY :Int = SR.gapDifY(lookThisFarBack)
     
     if (paused) {
         var nowTime = NSDate()
