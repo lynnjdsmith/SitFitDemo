@@ -33,7 +33,7 @@ CGColorRef graphBackgroundColor()
 	static CGColorRef c = NULL;
 	if (c == NULL)
 	{
-		c = CreateDeviceGrayColor(0.6, 1.0);
+		c = CreateDeviceGrayColor(0.9, 1.0);
 	}
 	return c;
 }
@@ -43,7 +43,7 @@ CGColorRef graphLineColor()
 	static CGColorRef c = NULL;
 	if (c == NULL)
 	{
-		c = CreateDeviceGrayColor(0.5, 1.0);
+		c = CreateDeviceGrayColor(0.8, 0.4);
 	}
 	return c;
 }
@@ -53,7 +53,7 @@ CGColorRef graphXColor()
 	static CGColorRef c = NULL;
 	if (c == NULL)
 	{
-		c = CreateDeviceRGBColor(1.0, 0.0, 0.0, 1.0);
+		c = CreateDeviceRGBColor(0.8, 0.2, 0.5, 1.0);
 	}
 	return c;
 }
@@ -63,7 +63,7 @@ CGColorRef graphYColor()
 	static CGColorRef c = NULL;
 	if (c == NULL)
 	{
-		c = CreateDeviceRGBColor(0.0, 1.0, 0.0, 1.0);
+		c = CreateDeviceRGBColor(0.0, 0.8, 0.3, 1.0);
 	}
 	return c;
 }
@@ -280,7 +280,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 
 	// Draw the text
 	UIFont *systemFont = [UIFont systemFontOfSize:12.0];
-	[[UIColor whiteColor] set];
+	[[UIColor blueColor] set];
 	[@"+3.0" drawInRect:CGRectMake(2.0, -56.0, 24.0, 16.0) withFont:systemFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
 	[@"+2.0" drawInRect:CGRectMake(2.0, -40.0, 24.0, 16.0) withFont:systemFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
 	[@"+1.0" drawInRect:CGRectMake(2.0, -24.0, 24.0, 16.0) withFont:systemFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
@@ -288,6 +288,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	[@"-1.0" drawInRect:CGRectMake(2.0,   8.0, 24.0, 16.0) withFont:systemFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
 	[@"-2.0" drawInRect:CGRectMake(2.0,  24.0, 24.0, 16.0) withFont:systemFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
 	[@"-3.0" drawInRect:CGRectMake(2.0,  40.0, 24.0, 16.0) withFont:systemFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
+     
 }
 
 @end

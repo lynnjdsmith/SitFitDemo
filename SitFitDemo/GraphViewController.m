@@ -2,6 +2,7 @@
 #import "GraphViewController.h"
 #import "GraphView.h"
 #import "AccelerometerFilter.h"
+#import "SharedReading.h"
 
 #define kUpdateFrequency	60.0
 #define kLocalizedPause		NSLocalizedString(@"Pause","pause taking samples")
@@ -34,6 +35,7 @@
 
 @synthesize unfiltered, filtered, pause, filterLabel;
 
+
 // Implement viewDidLoad to do additional setup after loading the view.
 - (void)viewDidLoad
 {
@@ -58,9 +60,10 @@
   [NSTimer scheduledTimerWithTimeInterval:3.0 target:self
                                  selector:@selector(refreshDevice) userInfo:nil repeats:NO];
   self.deviceConnected = false;
-
+    
+  [SharedReading sharedManager];  //Set up singleton class to share acc. readings across view controllers
+    
 }
-
 
 -(void)refreshDevice {
     //NSLog(@"refreshDevice");
@@ -68,7 +71,7 @@
     //NSLog(@"refreshDevice INNER");
     [VTNodeManager stopFindingDevices];
     [VTNodeManager startFindingDevices];
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self
                                  selector:@selector(refreshDevice) userInfo:nil repeats:NO];
   }
 }
@@ -87,8 +90,11 @@
   self.deviceConnected = true;
   [VTNodeManager getInstance].selectedNodeDevice.delegate = self;
   [[VTNodeManager getInstance].selectedNodeDevice setStreamModeAcc:YES Gyro:YES Mag:YES withTimestampingEnabled:YES];
+    
+    
+  [[VTNodeManager getInstance].selectedNodeDevice requestBLEConnectionParamsUpdateWithMinConnInterval: 8 withMaxConnInterval:16 withSlaveLatency:0 withSupervisionTimeout:400];  //I think I'm requesting the fastest possible BLE connection settings here, as described in VTNodeDevice.h    Maybe not necessary... may not help with the lag
+  
 }
-
 
 -(void)didReceiveMemoryWarning
 {
@@ -117,24 +123,19 @@
 #pragma mark - NodeDeviceDelegate
 
 -(void)nodeDeviceDidUpdateAccReading:(VTNodeDevice *)device withReading:(VTSensorReading *)reading {
-  static float accScaleMax = 16.0f;
+  //static float accScaleMax = 16.0f;
+    
+  SharedReading *singletonRds = [SharedReading sharedManager];
 
   NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reading forKey:@"reading"];
   
   [[NSNotificationCenter defaultCenter] postNotificationName:GraphViewMovementNotification object:nil userInfo: userInfo];
-  
-  // Update the accelerometer graph view
-  if (!isPaused)
-  {
-    //[filter addAcceleration:acceleration];
-    [unfiltered addX:reading.x y:reading.y z:reading.z];  
-    //[filtered addX:reading.x y:reading.y z:reading.z];
-  }
-  
+
+  [unfiltered addX:(reading.x*3) y:(reading.y*3) z:(reading.z*3)];  //multiply by 3 to fill the graph more 
+
+  [singletonRds setX:reading.x];  //set readings in the singleton which are directly visible to other objects
+  [singletonRds setY:reading.y];  //like BodyViewController
 }
-
-
-
 
 // UIAccelerometerDelegate method, called when the device accelerates.
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
@@ -210,11 +211,8 @@
 	UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil);
 }
 
-
-
 - (void)putValues {
   NSLog(@"PUTTING VALUES");
 }
-
 
 @end
