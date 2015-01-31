@@ -19,8 +19,17 @@ class BodyViewController: UIViewController, NodeDeviceDelegate {
  
   // hook up shite to the .xib
   @IBOutlet weak var body             :UIImageView!
-  @IBOutlet weak var muscles_abs      :UIImageView!
   @IBOutlet weak var muscles_thigh    :UIImageView!
+  @IBOutlet weak var muscles_abs      :UIImageView!
+
+  @IBOutlet weak var muscles_abs1      :UIImageView!
+  @IBOutlet weak var muscles_abs2      :UIImageView!
+  @IBOutlet weak var muscles_abs3      :UIImageView!
+  @IBOutlet weak var muscles_abs4      :UIImageView!
+  @IBOutlet weak var muscles_legs_calf_inner      :UIImageView!
+  @IBOutlet weak var muscles_legs_calf_outer      :UIImageView!
+  @IBOutlet weak var muscles_legs_sides      :UIImageView!
+  
   @IBOutlet weak var score1back       :UIView!
   @IBOutlet weak var score2back: UIView!
   @IBOutlet weak var fbTotalView: UILabel!
