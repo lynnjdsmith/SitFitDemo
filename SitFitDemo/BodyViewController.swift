@@ -4,17 +4,12 @@
 //
 //  Created by Lynn Smith on 12/12/14.
 //  Copyright (c) 2014 Lynn Smith. All rights reserved.
-//
-//  add new muscle groups and separate abs
-//  possible new color for muscle lighting
-//  investigate lag a little more... might be inherent in BLE, but it seems like the Node+ motion app has very little lag on the "orientation stream" view, although I think it's got the same lag in "raw stream" view.  weird.  I've pretty much ruled out some other possible causes of lag, such as using the notification center.  I wonder if the animation of the Orientation Stream view makes it faster than whatever methods are used to draw the Raw Stream graphs....
 
 
 import UIKit
 
 class BodyViewController: UIViewController {
  
-  // hook up shite to the .xib
   @IBOutlet weak var body             :UIImageView!
   @IBOutlet weak var muscles_abs      :UIImageView!
   @IBOutlet weak var muscles_thigh    :UIImageView!
@@ -38,20 +33,17 @@ class BodyViewController: UIViewController {
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         var currentValue = sender.value
-        userScaler = CGFloat(currentValue / 5)    //    println("Slider \(slider2.value)")
+        userScaler = CGFloat(currentValue / 5)
     }
 
-  var userScaler: CGFloat = 1
+  var userScaler: CGFloat = 1   //set initial value for user setting of slider
     
-  // when we see a big movement by looking back n readings for big gap, start evaluaing to detect swipe type
-  var Xthreshold  :Int = 320     // threshold for how big the size of the movement size must be to trigger a recorded movement
-  var Ythreshold  :Int = 220     // side to side needed a lower threshold to get good counts
+  var ssMovementFactor : CGFloat = 1.25  //overweight the side to side movement when deciding to increment FB or SS counters
     
-  var lookThisFarBack = 5        // each single reading that comes in, go back this # of readings and look at biggest / smallest readings
-  var evaluationLength = 5       // evaluate for this many subsequent redings
-  
-  // pause for this long after detecting swipe
-  var pauseThreshold :NSTimeInterval = 2
+  var pauseThreshold :NSTimeInterval = 1.7  // pause for this long after incrementing movement counter
+   
+  var FBthreshold : CGFloat = 2.8    //threshold for front-to-back movement peak detection
+  var SSthreshold : CGFloat = 2.5    //threshold for side-to-side movement peak detection
     
   // set starting empty values
   var paused = false
@@ -67,7 +59,7 @@ class BodyViewController: UIViewController {
   // create sensor readings model
   let SR :SensorReadings = SensorReadings()
     
-  let sr : SharedReading = SharedReading()
+  let sr :SharedReading = SharedReading()
   
   // set up vars for overlays (not in .xib)
   var meter1_overlay :UIImageView = UIImageView()
@@ -111,10 +103,6 @@ class BodyViewController: UIViewController {
   
   func notifiedOfMovement(notification: NSNotification){
 
-  // VTNodeManager.getInstance().selectedNodeDevice.delegate = self;   //goofy place to put this, but it works
-    //but of course, it breaks the Motion Stream, by stealing the NodeDevice delegate, I suppose
-    //and it didn't fix the lag :(
-    
     var xin: CGFloat = CGFloat(sr.getX())
     var yin: CGFloat = CGFloat(sr.getY())
     
@@ -129,13 +117,12 @@ class BodyViewController: UIViewController {
     
     println("UserScaler \(userScaler)")
     
-    println("\nAbs alpha: \(muscles_abs.alpha)   Thighs alpha: \(muscles_thigh.alpha)")
+   // println("\nAbs alpha: \(muscles_abs.alpha)   Thighs alpha: \(muscles_thigh.alpha)")
+    
+    println("\nFBmeter: \(SR.xPeak * 4 * userScaler)   SSmeter: \(SR.yPeak * 4 * userScaler)")
     
     SR.xread = Int(xin * 1000.0 * userScaler)
     SR.yread = Int(yin * 1000.0 * userScaler)
-    
-    var difX :Int = SR.gapDifX(lookThisFarBack)
-    var difY :Int = SR.gapDifY(lookThisFarBack)
     
     if (paused) {
         var nowTime = NSDate()
@@ -145,15 +132,8 @@ class BodyViewController: UIViewController {
         }
     } else {
         
-        // was the reading over threshold? Start swipe evaluation
-        if (difX > Xthreshold || difY > Ythreshold) {
-            evaluatingCount = 1
-        }
-        
-        // n readings later, trigger evalForSwipe() to mark a FB (x type) or SS (y type) swipe
-        if (evaluatingCount != 0) {
-            evaluatingCount++
-            if (evaluatingCount > evaluationLength) { evalForSwipe() }
+        if ((SR.xPeak * 4 * userScaler) > FBthreshold || (SR.yPeak * 4 * userScaler) > SSthreshold) {
+            evalForSwipe()
         }
     }
     
@@ -162,11 +142,10 @@ class BodyViewController: UIViewController {
 
   func evalForSwipe() {
     
-    // we want to check for the biggest gap (peak) in the beginning of the movement.
-    var biggestGapX = SR.gapDifX(lookThisFarBack + Int(CGFloat(evaluationLength) * 0.5))
-    var biggestGapY = SR.gapDifY(lookThisFarBack + Int(CGFloat(evaluationLength) * 0.5))
-    
-    if (biggestGapY > biggestGapX) {
+    var currentPeakX = (SR.xPeak * 4 * userScaler)
+    var currentPeakY = (SR.yPeak * 4 * userScaler)
+        
+    if ((currentPeakY * ssMovementFactor) > currentPeakX) {
       SSSwipeDetected()
     } else {
       FBSwipeDetected()
@@ -208,9 +187,9 @@ class BodyViewController: UIViewController {
         muscles_abs2.alpha =  0.8*(1*x + 0.25*y)
         muscles_abs3.alpha =  0.9*(1*x + 0.25*y)
         muscles_abs4.alpha =  1.0*(1*x + 0.25*y)
-        //I chose these coefficients by trial and error to try to keep the alpha less
+        //chose these coefficients by trial and error to try to keep the alpha less
         //than 1 most of the time... don't want it to saturate all the time, want the movement's gradation to be apparent
-        //with the slider2 the user can change the scaling of x and y from 0 to x2 it's original value, also
+        //and with the slider2 the user can change the scaling of x and y from 0 to x2 it's original value
     }
     
     
