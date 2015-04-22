@@ -40,7 +40,7 @@ class BodyViewController: UIViewController {
     
   var ssMovementFactor : CGFloat = 1.25  //overweight the side to side movement when deciding to increment FB or SS counters
     
-  var pauseThreshold :NSTimeInterval = 1.7  // pause for this long after incrementing movement counter
+  var pauseThreshold :NSTimeInterval = 1  // pause for this long after incrementing movement counter
    
   var FBthreshold : CGFloat = 2.8    //threshold for front-to-back movement peak detection
   var SSthreshold : CGFloat = 2.5    //threshold for side-to-side movement peak detection

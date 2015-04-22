@@ -9,7 +9,7 @@
 import Foundation
 
 
-let nAvg: Int = 100  //sets the number of readings kept in the running average -CJW
+let nAvg: Int = 10  //sets the number of readings kept in the running average -CJW
 let nPeakPersist: Int = 350  //sets the persistence or fade period for peak value detection+display -CJW
 let meterMult: Int = 10 //sets how much longer the meter peak levels will last than the body lighting... helps user adjust sensitivity with slider
 
