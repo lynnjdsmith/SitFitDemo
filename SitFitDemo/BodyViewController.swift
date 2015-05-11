@@ -26,6 +26,8 @@ class BodyViewController: UIViewController {
   @IBOutlet weak var score2back: UIView!
   @IBOutlet weak var fbTotalView: UILabel!
   @IBOutlet weak var ssTotalView: UILabel!
+  @IBOutlet weak var totalEffort: UILabel!
+  
   @IBOutlet weak var on_1: UIImageView!
   @IBOutlet weak var on_2: UIImageView!
   @IBOutlet weak var slider1: UISlider!
@@ -49,8 +51,9 @@ class BodyViewController: UIViewController {
   var paused = false
   var evaluatingCount = 0
   var regTimeStamp = NSDate()
-  var fbCount = 0
-  var ssCount = 0
+  var fbCount :Int = 0
+  var ssCount :Int = 0
+  var teCount :CGFloat = 0
   
   // set up vars for current value shown on meters     
   var meter1Reading :Int = 0
@@ -58,7 +61,6 @@ class BodyViewController: UIViewController {
   
   // create sensor readings model
   let SR :SensorReadings = SensorReadings()
-    
   let sr :SharedReading = SharedReading()
   
   // set up vars for overlays (not in .xib)
@@ -171,15 +173,21 @@ class BodyViewController: UIViewController {
   func updateFBTotal() {
     fbCount += 1
     fbTotalView.text = String(fbCount)
+    updateTotalEffort()
   }
 
   
   func updateSSTotal() {
     ssCount += 1
     ssTotalView.text = String(ssCount)
+    updateTotalEffort()
   }
   
-    
+  func updateTotalEffort() {
+    teCount = teCount + (1/(userScaler+0.01))  //add to current total effort count according to current level of difficulty
+    totalEffort.text = String(Int(teCount))
+  }
+  
 // MARK: - Body Animation
     
     func lightAbs(x: CGFloat, y: CGFloat) {

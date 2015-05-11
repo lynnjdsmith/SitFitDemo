@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BodyViewController" customModule="SitFitDemo" customModuleProvider="target">
@@ -16,12 +16,12 @@
                 <outlet property="muscles_legs_calf_outer" destination="Pte-rY-bqE" id="IsA-Wn-6R1"/>
                 <outlet property="muscles_legs_sides" destination="g7M-oU-ViL" id="8zb-Us-8qQ"/>
                 <outlet property="muscles_thigh" destination="skk-VY-Olt" id="Mhs-DH-wUG"/>
-                <outlet property="on_1" destination="vmS-Wk-Htv" id="5XE-jT-TPs"/>
                 <outlet property="on_2" destination="VS6-BZ-tlp" id="u2i-R3-NtM"/>
                 <outlet property="score1back" destination="HC3-3s-5qd" id="A7x-kU-kcd"/>
                 <outlet property="score2back" destination="wO0-DA-fqp" id="t2d-xC-icz"/>
                 <outlet property="slider2" destination="ngc-ys-glS" id="SEY-Sj-5tU"/>
                 <outlet property="ssTotalView" destination="zZW-AP-Uvh" id="EMo-Yh-M9y"/>
+                <outlet property="totalEffort" destination="WW7-vU-pYG" id="7bM-tk-dHZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -105,7 +105,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ6-yH-K2c">
-                    <rect key="frame" x="210" y="177" width="90" height="30"/>
+                    <rect key="frame" x="210" y="461" width="90" height="30"/>
                     <color key="backgroundColor" red="0.34757937420255364" green="0.47390843374431191" blue="0.86264054232804233" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                     <state key="normal" title="Forward / Back">
@@ -128,6 +128,22 @@
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="uyY-TD-eva"/>
                     </connections>
                 </slider>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-HK-CgZ">
+                    <rect key="frame" x="210" y="169" width="90" height="60"/>
+                    <color key="backgroundColor" red="0.61477494249999998" green="1" blue="0.99800301769999999" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Effort" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmz-Gs-Pb6">
+                    <rect key="frame" x="210" y="174" width="90" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW7-vU-pYG">
+                    <rect key="frame" x="210" y="188" width="90" height="40"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.97620768082121001" green="0.99773552908954" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
